@@ -7,9 +7,8 @@ import Product from '../components/product/Product'
 Vue.use(VueRouter)
 
 const routes = [
-    { path: '/shop', component: Shop},
-    { path: '/product', component: Product},
-    { path: ''}
+    { path: '/shop', component: Shop, name: 'shop'},
+    { path: '/product', component: Product, name: 'product'}
 ]
 
 export default new VueRouter({routes, mode:'history'})
