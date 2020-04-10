@@ -1,14 +1,13 @@
 <template>
-  <b-container>
+  <b-container class="shop-page">
       <b-row>
-          <b-col>
+          <b-col sm="2">
               <sidebar></sidebar>
           </b-col>
           <b-col>
               <product-list></product-list>
           </b-col>
       </b-row>
-
   </b-container>
 </template>
 
@@ -24,5 +23,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+    .shop-page{
+        margin-top:50px;
+    }
 </style>

@@ -21,10 +21,16 @@ export default {
 <style scoped>
     /deep/ h3{
         font-weight:bold;
+        font-size:16px;
         margin-bottom:16px;
     }
-    /deep/ a{
-        text-decoration: none;
+    /deep/ a, a:hover{
+        text-decoration: none !important;
         color: #212121;
+    }
+
+    /deep/ ul {
+        list-style: none;
+        padding:0;
     }
 </style>
