@@ -6,7 +6,7 @@
     <b-collapse id="nav-collapse" is-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-link v-for="(link, index) in links" :key="index" :to="link.route" router-tag="b-nav-item">{{link.title}}</b-link>
+        <b-link v-for="(link, index) in links" :key="index" :to="link.to" router-tag="b-nav-item">{{link.title}}</b-link>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -18,10 +18,10 @@ export default {
     data(){
       return {
         links: [
-          { title: 'Shop', route: 'shop' },
-          // { title: 'Blog', route: 'blog' },
-          // { title: 'About', route: 'about' },
-          // { title: 'Cart', route: 'cart' }
+          { title: 'Shop', to: '/shop' },
+          // { title: 'Blog', to: '/blog' },
+          // { title: 'About', to: '/about' },
+          // { title: 'Cart', to: '/cart' }
         ]
       }
     }
