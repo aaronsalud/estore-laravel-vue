@@ -1,10 +1,10 @@
 <template>
-     <div>
+    <div>
         <h1 class="stylish-heading">Laptops</h1>
-            <div class="products text-center">
-                <product></product>
-            </div>
-        </div>
+            <b-row class="products text-center">
+                <product v-for="(product, index) in products" :key="index" :product="product"></product>
+            </b-row>
+    </div>
 </template>
 
 <script>
@@ -13,6 +13,21 @@ export default {
     name: 'ProductList',
     components: {
         Product
+    },
+    data(){
+        return{
+            products: [
+                {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
+                {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
+                {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
+                {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
+                {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
+                {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
+
+            
+            
+            ]
+        }
     }
 }
 </script>
