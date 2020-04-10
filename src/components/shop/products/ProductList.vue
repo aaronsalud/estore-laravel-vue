@@ -23,15 +23,21 @@ export default {
                 {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
                 {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
                 {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
-
-            
-            
+                {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
+                {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
+                {name:'Macbook Pro', image: '/assets/images/macbook-pro.png', price: '$2499.99', link: 'http://google.ca'},
             ]
         }
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+    .stylish-heading{
+        border-top: solid 1px;
+        border-bottom: solid 1px;
+        width: 41px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
 </style>
