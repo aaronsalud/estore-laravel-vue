@@ -4,7 +4,9 @@
           <b-col>
               <sidebar></sidebar>
           </b-col>
-          <b-col></b-col>
+          <b-col>
+              <product-list></product-list>
+          </b-col>
       </b-row>
 
   </b-container>
@@ -12,10 +14,12 @@
 
 <script>
 import Sidebar from './sidebar/Sidebar'
+import ProductList from './products/ProductList'
 export default {
     name: 'Shop',
     components: {
-        Sidebar
+        Sidebar,
+        ProductList
     }
 }
 </script>
