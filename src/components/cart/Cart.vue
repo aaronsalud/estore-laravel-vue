@@ -1,32 +1,39 @@
 <template>
-    <b-container>
-        <b-row class="cart-list-section">
-            <b-col>
-               <cart-list></cart-list>
-               <coupon-code></coupon-code>
-               <cart-total></cart-total>
-               <cart-actions></cart-actions>
-               <cart-items-saved></cart-items-saved>
-            </b-col>
-        </b-row>
-    </b-container>
+    <fragment>
+        <b-container>
+            <b-row class="cart-list-section">
+                <b-col>
+                    <cart-list></cart-list>
+                    <coupon-code></coupon-code>
+                    <cart-total></cart-total>
+                    <cart-actions></cart-actions>
+                    <cart-items-saved></cart-items-saved>
+                </b-col>
+            </b-row>
+        </b-container>
+        <product-recommendations></product-recommendations>
+    </fragment>
 </template>
 
 <script>
+import { Fragment } from 'vue-fragment'
 import CartList from './CartList'
 import CouponCode from './CouponCode'
 import CartTotal from './CartTotal'
 import CartActions from './CartActions'
 import CartItemsSaved from './CartItemsSaved'
+import ProductRecommendations from '../product/ProductRecommendations'
 
 export default {
     name: 'Cart',
     components: {
+        Fragment,
         CartList,
         CouponCode,
         CartTotal,
         CartActions,
-        CartItemsSaved
+        CartItemsSaved,
+        ProductRecommendations
     }
 }
 </script>
