@@ -12,7 +12,7 @@
                 <a href="#">Remove</a> <br>
                 <a href="#">Save for Later</a>
             </div>
-            <div>
+            <div v-if="!quantityDisabled">
                 <select class="quantity">
                     <option selected="">1</option>
                     <option>2</option>
@@ -29,7 +29,7 @@
 <script>
 export default {
     name: 'CartItem',
-    props: ['item']
+    props: ['item', 'quantityDisabled']
 }
 </script>
 
