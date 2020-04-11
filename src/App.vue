@@ -19,4 +19,11 @@ export default {
 </script>
 
 <style>
+    .stylish-heading{
+        border-top: solid 1px;
+        border-bottom: solid 1px;
+        width: 7%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
 </style>
