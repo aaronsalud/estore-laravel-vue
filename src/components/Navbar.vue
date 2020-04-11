@@ -19,9 +19,9 @@ export default {
       return {
         links: [
           { title: 'Shop', to: '/shop' },
-          { title: 'Cart', to: '/cart' }
-          // { title: 'Blog', to: '/blog' },
-          // { title: 'About', to: '/about' },
+          { title: 'Cart', to: '/cart' },
+          { title: 'Product', to: '/product' },
+          { title: 'Checkout', to: '/checkout' },
      
         ]
       }
