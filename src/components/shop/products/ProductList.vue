@@ -33,11 +33,4 @@ export default {
 </script>
 
 <style scoped>
-    .stylish-heading{
-        border-top: solid 1px;
-        border-bottom: solid 1px;
-        width: 41px;
-        padding: 10px;
-        margin-bottom: 20px;
-    }
 </style>
