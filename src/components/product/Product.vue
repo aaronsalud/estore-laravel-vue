@@ -1,5 +1,5 @@
 <template>
-  <div class="product-page">
+  <div class="product-page main-container">
     <b-container>
       <b-row>
         <b-col>
@@ -47,9 +47,8 @@ export default {
 
 <style scoped>
   .product-page{
-    margin-top:30px;
+    margin-bottom:0 !important;
   }
-
   .product-image{
       border:1px solid #979797;
       padding:100px;

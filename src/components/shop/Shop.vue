@@ -1,5 +1,5 @@
 <template>
-  <b-container class="shop-page">
+  <b-container class="shop-page main-container">
       <b-row>
           <b-col sm="2">
               <sidebar></sidebar>
@@ -24,7 +24,4 @@ export default {
 </script>
 
 <style scoped>
-    .shop-page{
-        margin-top:50px;
-    }
 </style>
