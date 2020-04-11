@@ -4,6 +4,7 @@
             <b-col sm="10">
                <cart-list></cart-list>
                <coupon-code></coupon-code>
+               <cart-total></cart-total>
             </b-col>
             <b-col></b-col>
         </b-row>
@@ -13,12 +14,14 @@
 <script>
 import CartList from './CartList'
 import CouponCode from './CouponCode'
+import CartTotal from './CartTotal'
 
 export default {
     name: 'Cart',
     components: {
         CartList,
-        CouponCode
+        CouponCode,
+        CartTotal
     }
 }
 </script>
