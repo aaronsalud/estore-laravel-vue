@@ -1,10 +1,10 @@
 <template>
     <div class="cart-table-row">
         <div class="cart-table-row-left">
-            <a href="#"><img src="@/assets/images/macbook-pro.png" alt="item" class="cart-table-img"></a>
+            <a :href="item.link"><img src="@/assets/images/macbook-pro.png" alt="item" class="cart-table-img"></a>
             <div class="cart-item-details">
-                <div class="cart-table-item"><a href="#">MacBook Pro</a></div>
-                <div class="cart-table-description">15 inch, 1TB SSD, 32GB RAM</div>
+                <div class="cart-table-item"><a href="#">{{item.title}}</a></div>
+                <div class="cart-table-description">{{item.description}}</div>
             </div>
         </div>
         <div class="cart-table-row-right">
@@ -21,14 +21,15 @@
                     <option>5</option>
                 </select>
             </div>
-            <div>$2499.99</div>
+            <div>{{item.price}}</div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'CartItem'
+    name: 'CartItem',
+    props: ['item']
 }
 </script>
 
