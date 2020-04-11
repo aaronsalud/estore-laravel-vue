@@ -1,35 +1,33 @@
 <template>
-<fragment>
- <b-container class="product-page">
-   <b-row>
-     <b-col>
-       <div class="product-image">
-         <img src="@/assets/images/macbook-pro.png" alt="">
-       </div>
-     </b-col>
-     <b-col>
-        <div class="product-section-information">
+  <div class="product-page">
+    <b-container>
+      <b-row>
+        <b-col>
+          <div class="product-image">
+            <img src="@/assets/images/macbook-pro.png" alt="">
+          </div>
+        </b-col>
+        <b-col>
+          <div class="product-section-information">
             <h1 class="product-section-title">{{product.name}}</h1>
             <div class="product-section-subtitle">{{product.specifications}}</div>
             <div class="product-section-price">{{product.price}}</div>
             <p class="product-section-description">{{product.description}}</p>
             <button :href="product.link" class="button">Add to Cart</button>
-        </div>
-     </b-col>
-   </b-row>
- </b-container>
- <product-recommendations></product-recommendations>
-</fragment>
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
+    <product-recommendations></product-recommendations>
+  </div>
 </template>
 
 <script>
-import {Fragment} from 'vue-fragment'
 import ProductRecommendations from './ProductRecommendations'
 
 export default {
     name: 'Product',
     components: {
-      Fragment,
       ProductRecommendations
     },
     data(){
