@@ -33,6 +33,9 @@ export default {
 </script>
 
 <style scoped>
+    .checkout-table-container {
+      margin-left: 124px;
+    }
     .checkout-totals {
         display: flex;
         justify-content: space-between;
