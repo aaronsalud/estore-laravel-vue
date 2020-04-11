@@ -1,13 +1,13 @@
 <template>
     <b-container>
         <b-row class="cart-list-section">
-            <b-col sm="10">
+            <b-col>
                <cart-list></cart-list>
                <coupon-code></coupon-code>
                <cart-total></cart-total>
                <cart-actions></cart-actions>
+               <cart-items-saved></cart-items-saved>
             </b-col>
-            <b-col></b-col>
         </b-row>
     </b-container>
 </template>
@@ -17,6 +17,7 @@ import CartList from './CartList'
 import CouponCode from './CouponCode'
 import CartTotal from './CartTotal'
 import CartActions from './CartActions'
+import CartItemsSaved from './CartItemsSaved'
 
 export default {
     name: 'Cart',
@@ -24,7 +25,8 @@ export default {
         CartList,
         CouponCode,
         CartTotal,
-        CartActions
+        CartActions,
+        CartItemsSaved
     }
 }
 </script>
