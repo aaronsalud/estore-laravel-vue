@@ -1,5 +1,5 @@
 <template>
-    <b-container>
+    <b-container class="checkout-page main-container">
         <h1 class="checkout-heading stylish-heading">Checkout</h1>
         <b-row>
             <b-col>
@@ -21,5 +21,7 @@ export default {
 </script>
 
 <style>
-
+    .checkout-page{
+        margin-top:50px;
+    }
 </style>

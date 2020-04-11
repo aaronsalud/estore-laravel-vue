@@ -1,5 +1,6 @@
 <template>
     <form action="#">
+        <div class="spacer"></div>
         <h2>Billing Details</h2>
         <div class="form-group">
             <label for="email">Email Address</label>
