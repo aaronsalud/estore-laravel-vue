@@ -2,13 +2,14 @@
     <fragment>
         <b-container>
             <b-row class="cart-list-section">
-                <b-col>
+                <b-col sm=7>
                     <cart-list></cart-list>
                     <coupon-code></coupon-code>
                     <cart-total></cart-total>
                     <cart-actions></cart-actions>
                     <cart-items-saved></cart-items-saved>
                 </b-col>
+                <b-col></b-col>
             </b-row>
         </b-container>
         <product-recommendations></product-recommendations>
