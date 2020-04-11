@@ -1,9 +1,10 @@
 <template>
     <b-container>
-        <b-row>
-            <b-col>
+        <b-row class="cart-list-section">
+            <b-col sm="10">
                <cart-list></cart-list>
             </b-col>
+            <b-col></b-col>
         </b-row>
     </b-container>
 </template>
@@ -17,7 +18,9 @@ export default {
     }
 }
 </script>
-
-<style>
-
+ 
+<style scoped>
+    .cart-list-section {
+        margin:15px 0;
+    }
 </style>

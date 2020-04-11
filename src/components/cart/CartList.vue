@@ -19,6 +19,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    h2{
+        font-size:21px;
+        margin-bottom:16px;
+    }
 </style>
