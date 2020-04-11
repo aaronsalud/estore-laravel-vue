@@ -34,7 +34,7 @@ export default {
     .have-code-container {
       border: 1px solid #919191;
       padding: 16px;
-      width: 40%;
+      width: 60%;
     }
 
     form {

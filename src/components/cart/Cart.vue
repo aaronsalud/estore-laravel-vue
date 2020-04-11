@@ -1,5 +1,5 @@
 <template>
-    <fragment>
+    <div class="cart-page main-container">
         <b-container>
             <b-row class="cart-list-section">
                 <b-col sm=7>
@@ -13,11 +13,10 @@
             </b-row>
         </b-container>
         <product-recommendations></product-recommendations>
-    </fragment>
+    </div>
 </template>
 
 <script>
-import { Fragment } from 'vue-fragment'
 import CartList from './CartList'
 import CouponCode from './CouponCode'
 import CartTotal from './CartTotal'
@@ -28,7 +27,6 @@ import ProductRecommendations from '../product/ProductRecommendations'
 export default {
     name: 'Cart',
     components: {
-        Fragment,
         CartList,
         CouponCode,
         CartTotal,
@@ -40,6 +38,9 @@ export default {
 </script>
  
 <style scoped>
+    .cart-page{
+        margin-bottom:0 !important;
+    }
     .cart-list-section {
         margin:15px 0;
     }
