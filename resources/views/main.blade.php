@@ -5,10 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel Ecommerce Example</title>
+        <title>EStore</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:300,400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat%7CRoboto:300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- Styles -->
@@ -24,7 +24,7 @@
                     <li><a href="#">Shop</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Cart <span class="cart-count"><span>3</span></span></a></li>
                 </ul>
             </div> <!-- end top-nav -->
             <div class="hero container">
