@@ -12,6 +12,10 @@ class Product extends Model
     }
     
     public function getFormattedPrice(){
-        return "$" . number_format($this->price / 100, 2);
+        return '$' . number_format($this->price / 100, 2);
+    }
+
+    public function getImagePath(){
+        return asset('img/products/' . $this->slug. '.jpg');
     }
 }

@@ -20,7 +20,7 @@
 
     <div class="product-section container">
         <div class="product-section-image">
-            <img src="{{ asset('img/macbook-pro.png') }}" alt="product">
+            <img src="{{$product->getImagePath()}}" alt="product">
         </div>
         <div class="product-section-information">
             <h1 class="product-section-title">{{$product['name']}}</h1>
