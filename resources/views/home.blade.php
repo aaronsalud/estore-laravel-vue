@@ -18,15 +18,7 @@
     </head>
     <body>
         <header class="with-background">
-            <div class="top-nav container">
-                <div class="logo">EStore</div>
-                <ul>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Cart <span class="cart-count"><span>3</span></span></a></li>
-                </ul>
-            </div> <!-- end top-nav -->
+            @include('partials.nav')
             <div class="hero container">
                 <div class="hero-copy">
                     <h1>Laravel Ecommerce Demo</h1>
