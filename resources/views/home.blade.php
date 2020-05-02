@@ -69,7 +69,7 @@
                     <div class="product">
                         <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
                         <a href="#"><div class="product-name">{{$product['name']}}</div></a>
-                        <div class="product-price">{{$product['price']}}</div>
+                        <div class="product-price">{{$product->getFormattedPrice()}}</div>
                     </div>
                     @endforeach
                 </div> <!-- end products -->
