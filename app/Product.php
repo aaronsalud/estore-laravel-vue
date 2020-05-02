@@ -18,4 +18,8 @@ class Product extends Model
     public function getImagePath(){
         return asset('img/products/' . $this->slug. '.jpg');
     }
+
+    public function scopeMightLike($query){
+        return $query->inRandomOrder()->take(4);
+    }
 }
