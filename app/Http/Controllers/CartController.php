@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CartController extends Controller
 {
@@ -14,8 +16,9 @@ class CartController extends Controller
      */
     public function index()
     {
+        $cartItems = collect(Cart::content())->flatten();
         $productsMightLike = Product::mightLike()->get();
-        return view('cart', ['productsMightLike' => $productsMightLike]);
+        return view('cart', ['cartItems'=> $cartItems,'productsMightLike' => $productsMightLike]);
     }
 
     /**
@@ -36,7 +39,14 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cart::add([
+            'id' => $request->id, 
+            'name' => $request->name, 
+            'qty' => 1, 'price' => $request->price]
+        )->associate('App\Product');
+
+        Alert::toast('Item has been added to the cart!', 'success');
+        return redirect()->route('cart.index')->with('success_message', );
     }
 
     /**
