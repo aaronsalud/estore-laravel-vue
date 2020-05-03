@@ -106,36 +106,4 @@ class CartController extends Controller
         Alert::toast('Item has been removed from the cart!', 'success');
         return back();
     }
-
-    /**
-     * Add a shopping cart item to Save For Later instance
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function saveForLater($id)
-    {
-        $item = Cart::get($id);
-        Cart::remove($id);
-
-        // Check for pre existing cart items
-        $duplicateItems = Cart::instance('savedForLater')->search(function ($cartItem, $rowId) use ($id) {
-            return $rowId === $id;
-        });
-
-        // Avoid item duplicates in the cart
-        if ($duplicateItems->isNotEmpty()) {
-            Alert::toast('Item has already been saved for later', 'success');
-            return redirect()->route('cart.index');
-        }
-
-        Cart::instance('savedForLater')->add([
-            'id' => $item->id,
-            'name' => $item->name,
-            'qty' => 1, 'price' => $item->price
-        ])->associate('App\Product');
-
-        Alert::toast('Item has been saved for later!', 'success');
-        return redirect()->route('cart.index');
-    }
 }
