@@ -39,6 +39,17 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        // Check for pre existing cart items
+        $duplicateItems = Cart::search(function($cartItem) use ($request){
+            return $cartItem->id === $request->id;
+        });
+
+        // Avoid item duplicates in the cart
+        if($duplicateItems->isNotEmpty()){
+            Alert::toast('Item already in the cart!', 'success');
+            return redirect()->route('cart.index');
+        }
+
         Cart::add([
             'id' => $request->id, 
             'name' => $request->name, 
