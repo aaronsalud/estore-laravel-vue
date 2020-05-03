@@ -26,5 +26,6 @@ Route::post('/cart/saveForLater/{id}', 'SaveForLaterController@store')->name('sa
 Route::put('/cart/saveForLater/{id}', 'SaveForLaterController@edit')->name('saveForLater.edit');
 Route::delete('/cart/saveForLater/{id}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
 
-Route::view('/checkout', 'checkout');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout');
+
 Route::view('/thankyou', 'thankyou');

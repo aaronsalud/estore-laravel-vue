@@ -89,7 +89,7 @@
         <div class="cart-buttons">
             <a href="{{route('shop.index')}}" class="button">Continue Shopping</a>
             @if($cartItems->count() > 0)
-            <a href="#" class="button-primary">Proceed to Checkout</a>
+            <a href="{{route('checkout')}}" class="button-primary">Proceed to Checkout</a>
             @endif
         </div>
 
