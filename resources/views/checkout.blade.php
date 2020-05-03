@@ -135,10 +135,9 @@
 @endsection
 
 @section('extra-js')
-<script>
-    (function() {
+<script type="text/javascript">
         // Create a Stripe client.
-        var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+        var stripe = Stripe('pk_test_tf9di1xaqCVyuwb2leKrbhtX001mZT3vQ6');
 
         // Create an instance of Elements.
         var elements = stripe.elements();
@@ -209,6 +208,5 @@
             // Submit the form
             form.submit();
         }
-    });
 </script>
 @endsection
