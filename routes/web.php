@@ -23,6 +23,7 @@ Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
 
 Route::post('/cart/saveForLater/{id}', 'SaveForLaterController@store')->name('saveForLater.store');
+Route::put('/cart/saveForLater/{id}', 'SaveForLaterController@edit')->name('saveForLater.edit');
 Route::delete('/cart/saveForLater/{id}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
 
 Route::view('/checkout', 'checkout');

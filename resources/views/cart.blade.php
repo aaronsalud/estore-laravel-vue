@@ -112,7 +112,11 @@
                             {{ method_field('DELETE')}}
                             <button class="cart-options" type="submit">Remove</button>
                         </form>
-                        <a href="#">Save for Later</a>
+                        <form action="{{route('saveForLater.edit', $item->rowId)}}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('PUT')}}
+                            <button class="cart-options" type="submit">Add to cart</button>
+                        </form>
                     </div>
                     <div>{{$item->model->getFormattedPrice()}}</div>
                 </div>
