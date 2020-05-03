@@ -75,9 +75,9 @@
                     <span class="cart-totals-total">Total</span>
                 </div>
                 <div class="cart-totals-subtotal">
-                    $7499.97 <br>
-                    $975.00 <br>
-                    <span class="cart-totals-total">$8474.97</span>
+                    {{ getFormattedPrice(Cart::subtotal()) }} <br>
+                    {{ getFormattedPrice(Cart::tax()) }}<br>
+                    <span class="cart-totals-total">{{ getFormattedPrice(Cart::total()) }}</span>
                 </div>
             </div>
         </div> <!-- end cart-totals -->
