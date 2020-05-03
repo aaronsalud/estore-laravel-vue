@@ -16,8 +16,11 @@ class CartController extends Controller
      */
     public function index()
     {
+       
         $cartItems = collect(Cart::content())->flatten();
         $productsMightLike = Product::mightLike()->get();
+
+         dump(Cart::instance('saveForLater')->content());
         return view('cart', ['cartItems'=> $cartItems,'productsMightLike' => $productsMightLike]);
     }
 
@@ -57,7 +60,7 @@ class CartController extends Controller
         ])->associate('App\Product');
 
         Alert::toast('Item has been added to the cart!', 'success');
-        return redirect()->route('cart.index')->with('success_message', );
+        return redirect()->route('cart.index');
     }
 
     /**
@@ -106,4 +109,27 @@ class CartController extends Controller
         Alert::toast('Item has been removed from the cart!', 'success');
         return back();
     }
+
+      /**
+     * Add a shopping cart item to Save For Later instance
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function saveForLater($id)
+    {
+        $item = Cart::get($id);
+
+        Cart::remove($id);
+
+        Cart::instance('saveForLater')->add([
+            'id' => $item->id, 
+            'name' => $item->name, 
+            'qty' => 1, 'price' => $item->price
+        ])->associate('App\Product');
+
+        Alert::toast('Item has been saved for later!', 'success');
+        return redirect()->route('cart.index');
+    }
+
 }
