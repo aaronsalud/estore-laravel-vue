@@ -83,8 +83,10 @@
         </div> <!-- end cart-totals -->
         @endif
         <div class="cart-buttons">
-            <a href="#" class="button">Continue Shopping</a>
+            <a href="{{route('shop.index')}}" class="button">Continue Shopping</a>
+            @if($cartItems->count() > 0)
             <a href="#" class="button-primary">Proceed to Checkout</a>
+            @endif
         </div>
 
         <h2>2 items Saved For Later</h2>
