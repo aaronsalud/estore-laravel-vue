@@ -20,8 +20,10 @@ Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
-Route::post('/cart/saveForLater/{id}', 'CartController@saveForLater')->name('cart.saveForLater');
 Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
+
+Route::post('/cart/saveForLater/{id}', 'SaveForLaterController@store')->name('saveForLater.store');
+Route::delete('/cart/saveForLater/{id}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
 
 Route::view('/checkout', 'checkout');
 Route::view('/thankyou', 'thankyou');
