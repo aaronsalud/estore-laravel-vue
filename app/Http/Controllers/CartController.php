@@ -42,8 +42,8 @@ class CartController extends Controller
         Cart::add([
             'id' => $request->id, 
             'name' => $request->name, 
-            'qty' => 1, 'price' => $request->price]
-        )->associate('App\Product');
+            'qty' => 1, 'price' => $request->price
+        ])->associate('App\Product');
 
         Alert::toast('Item has been added to the cart!', 'success');
         return redirect()->route('cart.index')->with('success_message', );
@@ -91,6 +91,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+        Alert::toast('Item has been removed from the cart!', 'success');
+        return back();
     }
 }
