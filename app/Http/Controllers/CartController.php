@@ -16,12 +16,9 @@ class CartController extends Controller
      */
     public function index()
     {
-       
         $cartItems = collect(Cart::content())->flatten();
         $productsMightLike = Product::mightLike()->get();
-
-         dump(Cart::instance('saveForLater')->content());
-        return view('cart', ['cartItems'=> $cartItems,'productsMightLike' => $productsMightLike]);
+        return view('cart', ['cartItems' => $cartItems, 'productsMightLike' => $productsMightLike]);
     }
 
     /**
@@ -43,19 +40,19 @@ class CartController extends Controller
     public function store(Request $request)
     {
         // Check for pre existing cart items
-        $duplicateItems = Cart::search(function($cartItem) use ($request){
+        $duplicateItems = Cart::search(function ($cartItem) use ($request) {
             return $cartItem->id === $request->id;
         });
 
         // Avoid item duplicates in the cart
-        if($duplicateItems->isNotEmpty()){
+        if ($duplicateItems->isNotEmpty()) {
             Alert::toast('Item already in the cart!', 'success');
             return redirect()->route('cart.index');
         }
 
         Cart::add([
-            'id' => $request->id, 
-            'name' => $request->name, 
+            'id' => $request->id,
+            'name' => $request->name,
             'qty' => 1, 'price' => $request->price
         ])->associate('App\Product');
 
@@ -110,7 +107,7 @@ class CartController extends Controller
         return back();
     }
 
-      /**
+    /**
      * Add a shopping cart item to Save For Later instance
      *
      * @param  int  $id
@@ -119,17 +116,26 @@ class CartController extends Controller
     public function saveForLater($id)
     {
         $item = Cart::get($id);
-
         Cart::remove($id);
 
-        Cart::instance('saveForLater')->add([
-            'id' => $item->id, 
-            'name' => $item->name, 
+        // Check for pre existing cart items
+        $duplicateItems = Cart::instance('savedForLater')->search(function ($cartItem, $rowId) use ($id) {
+            return $rowId === $id;
+        });
+
+        // Avoid item duplicates in the cart
+        if ($duplicateItems->isNotEmpty()) {
+            Alert::toast('Item has already been saved for later', 'success');
+            return redirect()->route('cart.index');
+        }
+
+        Cart::instance('savedForLater')->add([
+            'id' => $item->id,
+            'name' => $item->name,
             'qty' => 1, 'price' => $item->price
         ])->associate('App\Product');
 
         Alert::toast('Item has been saved for later!', 'success');
         return redirect()->route('cart.index');
     }
-
 }
