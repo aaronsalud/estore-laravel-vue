@@ -37,7 +37,7 @@
                             {{ method_field('DELETE')}}
                             <button class="cart-options" type="submit">Remove</button>
                         </form>
-                        <form action="{{route('cart.saveForLater', $item->rowId)}}" method="POST">
+                        <form action="{{route('saveForLater.store', $item->rowId)}}" method="POST">
                             {{ csrf_field() }}
                             <button class="cart-options" type="submit">Save for later</button>
                         </form>
