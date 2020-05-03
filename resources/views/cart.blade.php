@@ -93,10 +93,10 @@
             @endif
         </div>
 
-        <h2>{{Cart::instance('saveForLater')->count() > 0 ? Cart::instance('saveForLater')->count() . ' item(s)' : 'No item ' }} saved for later</h2>
-        @if(Cart::instance('saveForLater')->count() > 0)
+        <h2>{{Cart::instance('savedForLater')->count() > 0 ? Cart::instance('savedForLater')->count() . ' item(s)' : 'No item ' }} saved for later</h2>
+        @if(Cart::instance('savedForLater')->count() > 0)
         <div class="saved-for-later cart-table">
-            @foreach(Cart::instance('saveForLater')->content() as $item)
+            @foreach(Cart::instance('savedForLater')->content() as $item)
             <div class="cart-table-row">
                 <div class="cart-table-row-left">
                     <a href="{{route('shop.show', $item->model->slug)}}"><img src="{{$item->model->getImagePath()}}" alt="item" class="cart-table-img"></a>
