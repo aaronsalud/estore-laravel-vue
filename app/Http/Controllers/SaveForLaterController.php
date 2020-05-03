@@ -102,6 +102,8 @@ class SaveForLaterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::instance('savedForLater')->remove($id);
+        Alert::toast('Item saved for later has been removed!', 'success');
+        return back();
     }
 }
