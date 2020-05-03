@@ -32,7 +32,11 @@
                 </div>
                 <div class="cart-table-row-right">
                     <div class="cart-table-actions">
-                        <a href="#">Remove</a> <br>
+                        <form action="{{route('cart.destroy', $item->rowId)}}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE')}}
+                            <button class="cart-options" type="submit">Remove</button>
+                        </form>
                         <a href="#">Save for Later</a>
                     </div>
                     <div>
