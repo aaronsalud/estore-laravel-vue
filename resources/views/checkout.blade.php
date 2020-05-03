@@ -13,7 +13,7 @@
     <h1 class="checkout-heading stylish-heading">Checkout</h1>
     <div class="checkout-section">
         <div>
-            <form action="#">
+            <form action="#" id="payment-form">
                 <h2>Billing Details</h2>
 
                 <div class="form-group">
