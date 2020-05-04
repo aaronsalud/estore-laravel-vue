@@ -46,7 +46,15 @@ var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    stripe.createToken(card).then(function(result) {
+    var options = {
+        name: document.getElementById('name_on_card').value,
+        address_line_1: document.getElementById('address').value,
+        address_city: document.getElementById('city').value,
+        address_state: document.getElementById('province').value,
+        address_zip: document.getElementById('postalcode').value
+    };
+
+    stripe.createToken(card, options).then(function(result) {
         if (result.error) {
             // Inform the user if there was an error.
             var errorElement = document.getElementById('card-errors');
