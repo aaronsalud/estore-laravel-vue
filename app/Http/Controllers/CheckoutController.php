@@ -52,6 +52,7 @@ class CheckoutController extends Controller
             ]);
 
             //Successful
+            Cart::instance('default')->destroy();
             return redirect()->route('confirmation.index')->with('success', true);
         }
         catch(Exception $e){
