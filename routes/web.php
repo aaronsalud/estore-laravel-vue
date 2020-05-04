@@ -29,4 +29,4 @@ Route::delete('/cart/saveForLater/{id}', 'SaveForLaterController@destroy')->name
 Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
-Route::view('/thankyou', 'thankyou');
+Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
