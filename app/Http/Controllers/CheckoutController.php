@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Cartalyst\Stripe\Exception\CardErrorException;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Exception;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -59,8 +60,8 @@ class CheckoutController extends Controller
             Cart::instance('default')->destroy();
             return redirect()->route('confirmation.index')->with('success', true);
         }
-        catch(Exception $e){
-            dd($e);
+        catch(CardErrorException $e){
+            Alert::toast($e->getMessage(),'error');
             return back();
         }
     }
