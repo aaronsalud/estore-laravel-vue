@@ -10,6 +10,17 @@
 
 <div class="container">
 
+    @if(count($errors) > 0)
+    <div class="spacer"></div>
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <h1 class="checkout-heading stylish-heading">Checkout</h1>
     <div class="checkout-section">
         <div>
@@ -61,18 +72,18 @@
                     <input type="text" class="form-control" id="name_on_card" name="name_on_card" value="">
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="card-element">
                         Credit or debit card
                     </label>
                     <div id="card-element">
-                        <!-- A Stripe Element will be inserted here. -->
+                        A Stripe Element will be inserted here. 
                     </div>
 
-                    <!-- Used to display form errors. -->
+                   Used to display form errors. 
                     <div id="card-errors" role="alert"></div>
                 </div>
-
+ -->
 
                 <div class="spacer"></div>
 
@@ -135,5 +146,5 @@
 
 @endsection
 @section('extra-js')
-<script src="/js/app.js"></script>
+<!-- <script src="/js/app.js"></script> -->
 @endsection
