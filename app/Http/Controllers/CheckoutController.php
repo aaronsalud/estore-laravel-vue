@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
+use Exception;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CheckoutController extends Controller
 {
@@ -34,7 +38,26 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $charge = Stripe::charges()->create([
+                'amount' => Cart::total() / 100,
+                'currency' => 'CAD',
+                'source' => $request->stripeToken,
+                'description' => 'Order',
+                'receipt_email' => $request->email,
+                'metadata' => [
+                    // 'contents' => $contents,
+                    // 'quantity' => Cart::instance('default')->count()
+                ]
+            ]);
+
+            //Successful
+            return redirect()->route('confirmation.index')->with('success', true);
+        }
+        catch(Exception $e){
+            dd($e);
+            return back();
+        }
     }
 
     /**
