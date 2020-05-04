@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CheckoutRequest;
 use Cartalyst\Stripe\Exception\CardErrorException;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
-use Exception;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -34,10 +34,10 @@ class CheckoutController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\CheckoutRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CheckoutRequest $request)
     {
         $contents = Cart::content()->map(function($item){
             return $item->model->slug . ', ' .$item->qty;
