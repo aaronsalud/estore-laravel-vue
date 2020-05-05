@@ -15,7 +15,14 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $products = Product::inRandomOrder()->take(12)->get();
+        if(request()->category){
+            $products = Product::with('categories')->whereHas('categories', function($query){
+                $query->where('slug', request()->category);
+            })->inRandomOrder()->take(12)->get();
+        }else{
+            $products = Product::inRandomOrder()->take(12)->get();
+        }
+
         $categories = Category::all();
 
         return view('shop', ['products' => $products, 'categories' => $categories]);
