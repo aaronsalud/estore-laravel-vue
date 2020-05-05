@@ -20,13 +20,9 @@
         <div class="sidebar">
             <h3>By Category</h3>
             <ul>
-                <li><a href="#">Laptops</a></li>
-                <li><a href="#">Desktops</a></li>
-                <li><a href="#">Mobile Phones</a></li>
-                <li><a href="#">Tablets</a></li>
-                <li><a href="#">TVs</a></li>
-                <li><a href="#">Digital Cameras</a></li>
-                <li><a href="#">Appliances</a></li>
+                @foreach($categories as $category)
+                <li><a href="#">{{$category['name']}}</a></li>
+                @endforeach
             </ul>
 
             <h3>By Price</h3>
