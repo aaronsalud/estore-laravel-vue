@@ -15,17 +15,21 @@ class ShopController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
+
         if(request()->category){
             $products = Product::with('categories')->whereHas('categories', function($query){
                 $query->where('slug', request()->category);
             })->inRandomOrder()->take(12)->get();
+            $categoryName = $categories->where('slug', request()->category)->first()->name;
         }else{
             $products = Product::inRandomOrder()->take(12)->get();
+            $categoryName = 'Featured';
         }
 
-        $categories = Category::all();
+       
 
-        return view('shop', ['products' => $products, 'categories' => $categories]);
+        return view('shop', ['products' => $products, 'categories' => $categories, 'categoryName' => $categoryName]);
     }
 
     /**

@@ -33,7 +33,7 @@
             </ul>
         </div> <!-- end sidebar -->
         <div>
-            <h1 class="stylish-heading">Laptops</h1>
+            <h1 class="stylish-heading">{{$categoryName}}</h1>
             <div class="products text-center">
                 @foreach($products as $product)
                 <div class="product">
