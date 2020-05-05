@@ -146,5 +146,5 @@
 
 @endsection
 @section('extra-js')
-<script src="/js/app.js"></script>
+<script src="{{asset('/js/stripe-client.js')}}"></script>
 @endsection
