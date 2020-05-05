@@ -145,7 +145,9 @@
                 axios.put(`/cart/${id}`, {
                         quantity: element.value
                     })
-                    .then((res) => console.log(res))
+                    .then((res) => {
+                        window.location.href = "{{ route('cart.index')}}";
+                    })
                     .catch(err => console.log(err));
             });
         });
