@@ -146,7 +146,10 @@
                     .then((res) => {
                         window.location.href = "{{ route('cart.index')}}";
                     })
-                    .catch(err => console.log(err));
+                    .catch(err => {
+                        console.log(err); 
+                        window.location.href = "{{ route('cart.index')}}"
+                    });
             });
         });
     })();
