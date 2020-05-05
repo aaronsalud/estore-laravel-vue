@@ -124,7 +124,15 @@
             <div class="checkout-totals">
                 <div class="checkout-totals-left">
                     Subtotal <br>
-                    Discount ({{ session()->get('coupon')['name'] }}) <br>
+                    @if(session()->has('coupon'))
+                    Discount ({{ session()->get('coupon')['name'] }}):
+                    <form action="{{route('coupon.destroy')}}"method="POST" style="display:inline;">
+                        {{ csrf_field() }}
+                        {{ method_field('delete') }}
+                        <button type="submit" style="font-size:14px;">Remove</button>
+                    </form>
+                    <br>
+                    @endif
                     Tax (13%)<br>
                     <span class="checkout-totals-total">Total</span>
 
@@ -132,13 +140,16 @@
 
                 <div class="checkout-totals-right">
                     {{ getFormattedPrice(Cart::subtotal())}} <br>
+                    @if(session()->has('coupon'))
                     -{{ getFormattedPrice(session()->get('coupon')['discount']) }} <br>
+                    @endif
                     {{ getFormattedPrice(Cart::tax()) }} <br>
                     <span class="checkout-totals-total">{{getFormattedPrice(Cart::total())}}</span>
 
                 </div>
             </div> <!-- end checkout-totals -->
 
+            @if(!session()->has('coupon'))
             <a href="#" class="have-code">Have a Code?</a>
             <div class="have-code-container">
                 <form action="{{route('coupon.store')}}" method="POST">
@@ -147,6 +158,7 @@
                     <button type="submit" class="button button-plain">Apply</button>
                 </form>
             </div> <!-- end have-code-container -->
+            @endif
 
         </div>
 
