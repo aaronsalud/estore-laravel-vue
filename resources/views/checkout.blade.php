@@ -80,7 +80,7 @@
                         <!-- A Stripe Element will be inserted here.  -->
                     </div>
 
-                   <!-- Used to display form errors.  -->
+                    <!-- Used to display form errors.  -->
                     <div id="card-errors" role="alert"></div>
                 </div>
 
@@ -138,6 +138,14 @@
 
                 </div>
             </div> <!-- end checkout-totals -->
+
+            <a href="#" class="have-code">Have a Code?</a>
+            <div class="have-code-container">
+                <form action="#">
+                    <input type="text">
+                    <button type="submit" class="button button-plain">Apply</button>
+                </form>
+            </div> <!-- end have-code-container -->
 
         </div>
 
