@@ -35,13 +35,15 @@
         <div>
             <h1 class="stylish-heading">{{$categoryName}}</h1>
             <div class="products text-center">
-                @foreach($products as $product)
+                @forelse($products as $product)
                 <div class="product">
                     <a href="{{route('shop.show', $product['slug'])}}"><img src="{{$product->getImagePath()}}" alt="product"></a>
                     <a href="{{route('shop.show', $product['slug'])}}"><div class="product-name">{{$product['name']}}</div></a>
                     <div class="product-price">{{$product->getFormattedPrice()}}</div>
                 </div>
-                @endforeach
+                @empty
+                <div class="text-left">No items found</div>
+                @endforelse
             </div> <!-- end products -->
         </div>
     </div>

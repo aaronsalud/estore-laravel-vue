@@ -27,8 +27,6 @@ class ShopController extends Controller
             $categoryName = 'Featured';
         }
 
-       
-
         return view('shop', ['products' => $products, 'categories' => $categories, 'categoryName' => $categoryName]);
     }
 
