@@ -16,6 +16,11 @@ class CartController extends Controller
      */
     public function index()
     {
+        // Display toast messages when updating cart items
+        if(session()->has('success_message')){
+            Alert::toast(session()->get('success_message'),'success');
+        }
+
         $cartItems = collect(Cart::content())->flatten();
         $productsMightLike = Product::mightLike()->get();
         return view('cart', ['cartItems' => $cartItems, 'productsMightLike' => $productsMightLike]);
@@ -91,7 +96,11 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Cart::instance('default')->update($id, $request->quantity);
+
+        session()->flash('success_message', 'Cart item quantity updated successfully');
+        
+        return response()->json(['success' => true]);
     }
 
     /**
