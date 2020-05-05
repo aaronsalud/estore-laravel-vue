@@ -15,24 +15,27 @@ class ShopController extends Controller
      */
     public function index()
     {
+        $perPage = 12;
         $categories = Category::all();
 
         if(request()->category){
             $products = Product::with('categories')->whereHas('categories', function($query){
                 $query->where('slug', request()->category);
-            })->get();
+            });
             $categoryName = $categories->where('slug', request()->category)->first()->name;
         }else{
-            $products = Product::inRandomOrder()->take(12)->get();
+            $products = Product::take(12);
             $categoryName = 'Featured';
         }
 
         if(request()->sort == 'low_high'){
-            $products = $products->sortBy('price');
+            $products = $products->orderBy('price', 'asc');
         } 
         else if(request()->sort == 'high_low'){
-            $products = $products->sortByDesc('price');
+            $products = $products->orderBy('price', 'desc');
         }
+
+        $products = $products->paginate($perPage);
 
         return view('shop', ['products' => $products, 'categories' => $categories, 'categoryName' => $categoryName]);
     }
