@@ -20,6 +20,7 @@ Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
+Route::put('/cart/{id}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
 
 Route::post('/cart/saveForLater/{id}', 'SaveForLaterController@store')->name('saveForLater.store');
