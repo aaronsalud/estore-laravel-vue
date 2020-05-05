@@ -25,9 +25,8 @@ class CartController extends Controller
             Alert::toast(session()->get('error_message'),'error');
         }
 
-        $cartItems = collect(Cart::content())->flatten();
         $productsMightLike = Product::mightLike()->get();
-        return view('cart', ['cartItems' => $cartItems, 'productsMightLike' => $productsMightLike]);
+        return view('cart', ['productsMightLike' => $productsMightLike]);
     }
 
     /**
@@ -49,7 +48,7 @@ class CartController extends Controller
     public function store(Request $request)
     {
         // Check for pre existing cart items
-        $duplicateItems = Cart::search(function ($cartItem) use ($request) {
+        $duplicateItems = Cart::instance('default')->search(function ($cartItem) use ($request) {
             return $cartItem->id === $request->id;
         });
 
@@ -59,7 +58,7 @@ class CartController extends Controller
             return redirect()->route('cart.index');
         }
 
-        Cart::add([
+        Cart::instance('default')->add([
             'id' => $request->id,
             'name' => $request->name,
             'qty' => 1, 'price' => $request->price
@@ -122,7 +121,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        Cart::remove($id);
+        Cart::instance('default')->remove($id);
         Alert::toast('Item has been removed from the cart!', 'success');
         return back();
     }

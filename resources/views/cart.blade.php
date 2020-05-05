@@ -21,7 +21,7 @@
         <h2>{{Cart::instance('default')->count() > 0 ? Cart::instance('default')->count() . ' item(s)' : 'No item' }} in Shopping Cart</h2>
         @if(Cart::instance('default')->count() > 0)
         <div class="cart-table">
-            @foreach($cartItems as $item)
+            @foreach(Cart::instance('default')->content() as $item)
             <div class="cart-table-row">
                 <div class="cart-table-row-left">
                     <a href="{{route('shop.show', $item->model->slug)}}"><img src="{{$item->model->getImagePath()}}" alt="item" class="cart-table-img"></a>
@@ -86,13 +86,14 @@
         @endif
         <div class="cart-buttons">
             <a href="{{route('shop.index')}}" class="button">Continue Shopping</a>
-            @if($cartItems->count() > 0)
+            @if(Cart::instance('default')->count() > 0)
             <a href="{{route('checkout')}}" class="button-primary">Proceed to Checkout</a>
             @endif
         </div>
 
-        <h2>{{Cart::instance('savedForLater')->count() > 0 ? Cart::instance('savedForLater')->count() . ' item(s)' : 'No item ' }} saved for later</h2>
+        
         @if(Cart::instance('savedForLater')->count() > 0)
+        <h2>{{ Cart::instance('savedForLater')->count() . ' item(s)' }} saved for later</h2>
         <div class="saved-for-later cart-table">
             @foreach(Cart::instance('savedForLater')->content() as $item)
             <div class="cart-table-row">
