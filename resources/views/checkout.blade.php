@@ -124,15 +124,15 @@
             <div class="checkout-totals">
                 <div class="checkout-totals-left">
                     Subtotal <br>
-                    <!-- Discount (10OFF - 10%) <br> -->
-                    Tax <br>
+                    Discount ({{ session()->get('coupon')['name'] }}) <br>
+                    Tax (13%)<br>
                     <span class="checkout-totals-total">Total</span>
 
                 </div>
 
                 <div class="checkout-totals-right">
                     {{ getFormattedPrice(Cart::subtotal())}} <br>
-                    <!-- -$750.00 <br> -->
+                    -{{ getFormattedPrice(session()->get('coupon')['discount']) }} <br>
                     {{ getFormattedPrice(Cart::tax()) }} <br>
                     <span class="checkout-totals-total">{{getFormattedPrice(Cart::total())}}</span>
 
