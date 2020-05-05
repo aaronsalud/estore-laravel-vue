@@ -7,7 +7,7 @@ html {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: $text-color;
 
     &:visited {
