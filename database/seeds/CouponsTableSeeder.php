@@ -15,7 +15,7 @@ class CouponsTableSeeder extends Seeder
         Coupon::create([
             'code' => 'ABC123',
             'type' => 'fixed',
-            'discount_value' => 30
+            'discount_value' => 3000
         ]);
 
         Coupon::create([
