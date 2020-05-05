@@ -18,8 +18,8 @@
 
 <div class="cart-section container">
     <div>
-        <h2>{{$cartItems->count() > 0 ? $cartItems->count() . ' item(s)' : 'No item' }} in Shopping Cart</h2>
-        @if($cartItems->count() > 0)
+        <h2>{{Cart::instance('default')->count() > 0 ? Cart::instance('default')->count() . ' item(s)' : 'No item' }} in Shopping Cart</h2>
+        @if(Cart::instance('default')->count() > 0)
         <div class="cart-table">
             @foreach($cartItems as $item)
             <div class="cart-table-row">
