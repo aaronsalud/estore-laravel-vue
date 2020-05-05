@@ -44,7 +44,7 @@
 
                     </div>
                     <div>
-                        <select class="quantity">
+                        <select class="quantity" data-id="{{$item->rowId}}">
                             <option selected="">1</option>
                             <option>2</option>
                             <option>3</option>
@@ -131,4 +131,24 @@
 @include('partials.might-like')
 
 
+@endsection
+
+@section('extra-js')
+<script src="{{ asset('js/app.js') }}"></script>
+<script>
+    (function() {
+        const className = document.querySelectorAll('.quantity');
+
+        Array.from(className).forEach((element) => {
+            element.addEventListener('change', () => {
+                const id = element.getAttribute('data-id');
+                axios.put(`/cart/${id}`, {
+                        quantity: element.value
+                    })
+                    .then((res) => console.log(res))
+                    .catch(err => console.log(err));
+            });
+        });
+    })();
+</script>
 @endsection
