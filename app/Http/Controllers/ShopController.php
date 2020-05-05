@@ -22,7 +22,7 @@ class ShopController extends Controller
             $products = Product::with('categories')->whereHas('categories', function($query){
                 $query->where('slug', request()->category);
             });
-            $categoryName = $categories->where('slug', request()->category)->first()->name;
+            $categoryName = optional($categories->where('slug', request()->category)->first())->name;
         }else{
             $products = Product::take(12);
             $categoryName = 'Featured';
