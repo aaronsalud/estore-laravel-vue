@@ -55,7 +55,7 @@
             <div class="text-left">No items found</div>
             @endforelse
         </div> <!-- end products -->
-        {{ $products->links() }}
+        {{ $products->appends(request()->input())->links() }}
     </div>
 </div>
 
