@@ -52,7 +52,7 @@
                             <option {{ $item->qty == 5 ? 'selected' : ''}}>5</option>
                         </select>
                     </div>
-                    <div>{{$item->model->getFormattedPrice()}}</div>
+                    <div>{{getFormattedPrice($item->subtotal)}}</div>
                 </div>
             </div> <!-- end cart-table-row -->
             @endforeach
