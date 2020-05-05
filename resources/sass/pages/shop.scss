@@ -4,6 +4,10 @@
     margin: 80px auto;
     min-height:529px;
 
+    .sidebar li.active {
+      font-weight:500;
+    }
+
     .products {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;

@@ -11495,6 +11495,10 @@ footer {
   min-height: 529px;
 }
 
+.products-section .sidebar li.active {
+  font-weight: 500;
+}
+
 .products-section .products {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
