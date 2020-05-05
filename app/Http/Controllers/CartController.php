@@ -106,7 +106,7 @@ class CartController extends Controller
         
         if($validator->fails()){
             session()->flash('error_message', 'Quantity must be between 1 and 5');
-            return response()->json(['success' => false], 500);
+            return response()->json(['success' => false], 400);
         }
 
         Cart::instance('default')->update($id, $request->quantity);
