@@ -26,7 +26,7 @@
         @if($product->images)
         <div class="product-section-images">
             @foreach($product->getImageGalleryPaths() as $image)
-            <div class="product-section-thumbnail">
+            <div class="product-section-thumbnail {{ $loop->index == 0 ? 'selected' : ''  }}">
                 <img src="{{$image}}" alt="">
             </div>
             @endforeach

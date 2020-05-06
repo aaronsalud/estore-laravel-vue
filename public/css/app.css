@@ -11538,6 +11538,22 @@ footer {
   margin-top: 20px;
 }
 
+.product-section-images .selected {
+  border: 1px solid;
+}
+
+.product-section-thumbnail {
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+  min-height: 66px;
+  cursor: pointer;
+}
+
+.product-section-thumbnail:hover {
+  border: 1px solid #979797;
+}
+
 .product-section-information p {
   margin-bottom: 16px;
 }
