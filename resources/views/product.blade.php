@@ -28,7 +28,6 @@
             <div class="product-section-price">{{$product->getFormattedPrice()}}</div>
             <p>{!! $product['description'] !!}</p>
             <p>&nbsp;</p>
-            <!-- <a href="" class="button">Add to Cart</a> -->
             <form action="{{route('cart.store')}}" method="POST">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{$product['id']}}">
