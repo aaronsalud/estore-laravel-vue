@@ -22,6 +22,13 @@
         <div class="product-section-image">
             <img src="{{$product->getImagePath()}}" alt="product">
         </div>
+        @if($product->images)
+        <div>
+            @foreach($product->getImageGalleryPaths() as $image)
+                <img src="{{$image}}" alt="">
+            @endforeach
+        </div>
+        @endif
         <div class="product-section-information">
             <h1 class="product-section-title">{{$product['name']}}</h1>
             <div class="product-section-subtitle">{{$product['details']}}</div>
