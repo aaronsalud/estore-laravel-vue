@@ -157,8 +157,8 @@ VALUES
 	(74,9,'discount_percentage','number','Discount Percentage',0,1,1,1,1,1,'{\"null\":\"\"}',5),
 	(75,9,'created_at','timestamp','Created At',0,1,1,1,0,1,'{}',6),
 	(76,9,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),
-	(77,10,'product_id','number','Product Id',0,1,1,1,1,1,'{}',1),
-	(78,10,'product_category_id','number','Product Category Id',0,1,1,1,1,1,'{}',2);
+	(77, 7, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 1, '{}', 8);
+
 
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -203,8 +203,7 @@ VALUES
 	(6,'pages','pages','Page','Pages','voyager-file-text','TCG\\Voyager\\Models\\Page',NULL,'','',1,0,NULL,'2020-05-06 15:43:21','2020-05-06 15:43:21'),
 	(7,'products','products','Product','Products','voyager-bag','App\\Product',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2020-05-06 18:00:28','2020-05-06 18:25:38'),
 	(8,'product_categories','product-categories','Product Category','Product Categories','voyager-categories','App\\ProductCategory',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2020-05-06 18:27:51','2020-05-06 18:27:51'),
-	(9,'coupons','coupons','Coupon','Coupons','voyager-dollar','App\\Coupon',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2020-05-06 18:56:28','2020-05-06 18:56:28'),
-	(10,'product_product_category','category-product','Category Product','Category Products','voyager-tag','App\\CategoryProduct',NULL,NULL,NULL,1,0,'{\"order_column\":\"product_id\",\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2020-05-06 19:06:49','2020-05-06 19:13:56');
+	(9,'coupons','coupons','Coupon','Coupons','voyager-dollar','App\\Coupon',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2020-05-06 18:56:28','2020-05-06 18:56:28');
 
 /*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
 UNLOCK TABLES;
