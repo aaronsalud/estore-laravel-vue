@@ -83,18 +83,10 @@
                     <!-- Used to display form errors.  -->
                     <div id="card-errors" role="alert"></div>
                 </div>
-
-
                 <div class="spacer"></div>
-
                 <button type="submit" class="button-primary full-width" id="complete-order">Complete Order</button>
-
-
             </form>
         </div>
-
-
-
         <div class="checkout-table-container">
             <h2>Your Order</h2>
 
@@ -115,10 +107,6 @@
                     </div>
                 </div> <!-- end checkout-table-row -->
                 @endforeach
-
-
-
-
             </div> <!-- end checkout-table -->
 
             <div class="checkout-totals">
@@ -132,19 +120,21 @@
                         <button type="submit" style="font-size:14px;">Remove</button>
                     </form>
                     <br>
+                    <hr>
+                    New Subtotal<br>
                     @endif
                     Tax (13%)<br>
                     <span class="checkout-totals-total">Total</span>
-
                 </div>
-
                 <div class="checkout-totals-right">
                     {{ getFormattedPrice(Cart::subtotal())}} <br>
                     @if(session()->has('coupon'))
-                    -{{ getFormattedPrice(session()->get('coupon')['discount']) }} <br>
+                    -{{ getFormattedPrice($discount) }} <br>
+                    <hr>
+                    {{ getFormattedPrice($newSubtotal) }}<br>
                     @endif
-                    {{ getFormattedPrice(Cart::tax()) }} <br>
-                    <span class="checkout-totals-total">{{getFormattedPrice(Cart::total())}}</span>
+                    {{ getFormattedPrice($newTax) }} <br>
+                    <span class="checkout-totals-total">{{getFormattedPrice($newTotal)}}</span>
 
                 </div>
             </div> <!-- end checkout-totals -->
