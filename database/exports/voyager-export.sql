@@ -255,7 +255,12 @@ VALUES
 	(14,1,'Hooks','','_self','voyager-hook',NULL,5,5,'2020-05-06 15:43:21','2020-05-06 18:07:13','voyager.hooks',NULL),
 	(15,1,'Products','','_self','voyager-bag',NULL,NULL,2,'2020-05-06 18:00:28','2020-05-06 18:07:18','voyager.products.index',NULL),
 	(16,1,'Product Categories','','_self','voyager-categories',NULL,NULL,3,'2020-05-06 18:27:51','2020-05-06 18:48:01','voyager.product-categories.index',NULL),
-	(17,1,'Coupons','','_self','voyager-dollar',NULL,NULL,4,'2020-05-06 18:56:28','2020-05-06 18:57:02','voyager.coupons.index',NULL);
+	(17,1,'Coupons','','_self','voyager-dollar',NULL,NULL,4,'2020-05-06 18:56:28','2020-05-06 18:57:02','voyager.coupons.index',NULL),
+	(19,2,'Shop','','_self',NULL,'#000000',NULL,13,'2020-05-06 19:36:41','2020-05-06 19:36:41','shop.index',NULL),
+	(20,2,'About','#','_self',NULL,'#000000',NULL,14,'2020-05-06 19:37:29','2020-05-06 19:37:29',NULL,''),
+	(21,2,'Blog','#','_self',NULL,'#000000',NULL,15,'2020-05-06 19:37:41','2020-05-06 19:37:41',NULL,''),
+	(22,2,'Cart','','_self',NULL,'#000000',NULL,16,'2020-05-06 19:37:53','2020-05-06 19:37:53','cart.index',NULL),
+	(23,3,'fa-github','https://github.com/aaronsalud','_self',NULL,'#000000',NULL,17,'2020-05-06 19:57:39','2020-05-06 19:57:39',NULL,'');
 
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
 UNLOCK TABLES;
