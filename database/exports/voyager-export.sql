@@ -280,7 +280,9 @@ LOCK TABLES `menus` WRITE;
 
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`)
 VALUES
-	(1,'admin','2020-05-06 15:41:11','2020-05-06 15:41:11');
+	(1,'admin','2020-05-06 15:41:11','2020-05-06 15:41:11'),
+	(2,'main','2020-05-06 19:35:33','2020-05-06 19:35:33'),
+	(3,'footer','2020-05-06 19:55:42','2020-05-06 19:55:42');
 
 /*!40000 ALTER TABLE `menus` ENABLE KEYS */;
 UNLOCK TABLES;
