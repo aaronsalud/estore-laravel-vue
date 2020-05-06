@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+
 use App\Product;
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -16,7 +17,7 @@ class ShopController extends Controller
     public function index()
     {
         $perPage = 12;
-        $categories = Category::all();
+        $categories = ProductCategory::all();
 
         if(request()->category){
             $products = Product::with('categories')->whereHas('categories', function($query){
