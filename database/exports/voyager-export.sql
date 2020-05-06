@@ -157,7 +157,9 @@ VALUES
 	(74,9,'discount_percentage','number','Discount Percentage',0,1,1,1,1,1,'{\"null\":\"\"}',5),
 	(75,9,'created_at','timestamp','Created At',0,1,1,1,0,1,'{}',6),
 	(76,9,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),
-	(77, 7, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 1, '{}', 8);
+	(77, 7, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 1, '{}', 8),
+	(78, 7, 'images', 'multiple_images', 'Images', 0, 1, 1, 1, 1, 1, '{}', 9);
+
 
 
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
