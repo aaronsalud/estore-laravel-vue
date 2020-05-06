@@ -40,14 +40,15 @@ class CheckoutController extends Controller
 
         try{
             $charge = Stripe::charges()->create([
-                'amount' => Cart::total() / 100,
+                'amount' => $this->getPriceCalculations()->get('newTotal') / 100,
                 'currency' => 'CAD',
                 'source' => $request->stripeToken,
                 'description' => 'Order',
                 'receipt_email' => $request->email,
                 'metadata' => [
                     'contents' => $contents,
-                    'quantity' => Cart::instance('default')->count()
+                    'quantity' => Cart::instance('default')->count(),
+                    'discount' => collect(session()->get('coupon'))->toJson()
                 ]
             ]);
 
