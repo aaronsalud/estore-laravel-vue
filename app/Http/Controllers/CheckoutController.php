@@ -54,6 +54,7 @@ class CheckoutController extends Controller
 
             //Successful
             Cart::instance('default')->destroy();
+            session()->forget('coupon');
             return redirect()->route('confirmation.index')->with('success', true);
         }
         catch(CardErrorException $e){
