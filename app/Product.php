@@ -19,9 +19,10 @@ class Product extends Model
     }
 
     public function getImagePath(){
-        if(isset($this->image)){
-            return asset('storage/' . $this->image);
+        if(isset($this->image) && file_exists('storage/'. $this->image)){
+            return asset('storage/'. $this->image);
         }
+
         return asset('img/products/' . $this->slug. '.jpg');
     }
 
