@@ -18,28 +18,12 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        $tax = config('cart.tax') / 100;
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subtotal() - $discount);
-        $newTax = $newSubtotal * $tax;
-        $newTotal = $newSubtotal * (1 + $tax);
-
         return view('checkout', [
-            'discount' => $discount,
-            'newSubtotal' => $newSubtotal,
-            'newTax' => $newTax,
-            'newTotal' => $newTotal
+            'discount' => $this->getPriceCalculations()->get('discount'),
+            'newSubtotal' => $this->getPriceCalculations()->get('newSubtotal'),
+            'newTax' => $this->getPriceCalculations()->get('newTax'),
+            'newTotal' => $this->getPriceCalculations()->get('newTotal')
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -77,48 +61,19 @@ class CheckoutController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    private function getPriceCalculations(){
+        $tax = config('cart.tax') / 100;
+        $discount = session()->get('coupon')['discount'] ?? 0;
+        $newSubtotal = (Cart::subtotal() - $discount);
+        $newTax = $newSubtotal * $tax;
+        $newTotal = $newSubtotal * (1 + $tax);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return collect([
+            'tax' => $tax,
+            'discount' => $discount,
+            'newSubtotal' => $newSubtotal,
+            'newTax' => $newTax,
+            'newTotal' => $newTotal
+        ]);
     }
 }
