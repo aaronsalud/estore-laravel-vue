@@ -29,7 +29,7 @@ Route::post('/cart/saveForLater/{id}', 'SaveForLaterController@store')->name('sa
 Route::put('/cart/saveForLater/{id}', 'SaveForLaterController@edit')->name('saveForLater.edit');
 Route::delete('/cart/saveForLater/{id}', 'SaveForLaterController@destroy')->name('saveForLater.destroy');
 
-Route::get('/checkout', 'CheckoutController@index')->name('checkout');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout')->middleware('auth');
 Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
 Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
