@@ -260,8 +260,7 @@ VALUES
 	(19,2,'Shop','','_self',NULL,'#000000',NULL,13,'2020-05-06 19:36:41','2020-05-06 19:36:41','shop.index',NULL),
 	(20,2,'About','#','_self',NULL,'#000000',NULL,14,'2020-05-06 19:37:29','2020-05-06 19:37:29',NULL,''),
 	(21,2,'Blog','#','_self',NULL,'#000000',NULL,15,'2020-05-06 19:37:41','2020-05-06 19:37:41',NULL,''),
-	(22,2,'Cart','','_self',NULL,'#000000',NULL,16,'2020-05-06 19:37:53','2020-05-06 19:37:53','cart.index',NULL),
-	(23,3,'fa-github','https://github.com/aaronsalud','_self',NULL,'#000000',NULL,17,'2020-05-06 19:57:39','2020-05-06 19:57:39',NULL,'');
+	(22,3,'fa-github','https://github.com/aaronsalud','_self',NULL,'#000000',NULL,17,'2020-05-06 19:57:39','2020-05-06 19:57:39',NULL,'');
 
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
 UNLOCK TABLES;
