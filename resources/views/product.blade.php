@@ -21,7 +21,7 @@
 <div class="product-section container">
     <div>
         <div class="product-section-image">
-            <img src="{{$product->getImagePath()}}" alt="product">
+            <img src="{{$product->getImagePath()}}" alt="product" id="currentImage">
         </div>
         @if($product->images)
         <div class="product-section-images">
@@ -52,4 +52,21 @@
 @include('partials.might-like')
 
 
+@endsection
+
+@section('extra-js')
+<script>
+    (function(){
+        const currentImage = document.querySelector('#currentImage');
+        const images = document.querySelectorAll('.product-section-thumbnail');
+
+        images.forEach((element)=> element.addEventListener('click', thumbnailClick))
+
+        function thumbnailClick(e){
+            currentImage.src = this.querySelector('img').src;
+            images.forEach((element)=> element.classList.remove('selected'));
+            this.classList.add('selected');
+        }
+    })();
+</script>
 @endsection
