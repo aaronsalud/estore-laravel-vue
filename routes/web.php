@@ -32,6 +32,8 @@ Route::delete('/cart/saveForLater/{id}', 'SaveForLaterController@destroy')->name
 Route::get('/checkout', 'CheckoutController@index')->name('checkout')->middleware('auth');
 Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
+Route::get('/guest-checkout', 'CheckoutController@index')->name('guestCheckout.index');
+
 Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
 
 Route::post('/coupon', 'CouponsController@store')->name('coupon.store');
