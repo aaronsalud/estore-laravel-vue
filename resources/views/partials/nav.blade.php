@@ -1,6 +1,11 @@
 <div class="top-nav container">
-    <div class="logo"><a href="{{route('landing')}}">EStore</a></div>
-    @if (! request()->is('checkout'))
-    {{menu('main', 'partials.menus.main')}}
-    @endif
+    <div class="top-nav-left">
+        <div class="logo"><a href="{{route('landing')}}">EStore</a></div>
+        @if (! request()->is('checkout'))
+        {{menu('main', 'partials.menus.main')}}
+        @endif
+    </div>
+    <div class="top-nav-right">
+        @include('partials.menus.main-right')
+    </div>
 </div> <!-- end top-nav -->
