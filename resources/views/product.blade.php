@@ -25,9 +25,12 @@
         </div>
         @if($product->images)
         <div class="product-section-images">
+            <div class="product-section-thumbnail selected">
+                <img src="{{$product->getImagePath()}}" alt="product">
+            </div>
             @foreach($product->getImageGalleryPaths() as $image)
-            <div class="product-section-thumbnail {{ $loop->index == 0 ? 'selected' : ''  }}">
-                <img src="{{$image}}" alt="">
+            <div class="product-section-thumbnail">
+                <img src="{{$image}}" alt="product">
             </div>
             @endforeach
         </div>
@@ -56,20 +59,20 @@
 
 @section('extra-js')
 <script>
-    (function(){
+    (function() {
         const currentImage = document.querySelector('#currentImage');
         const images = document.querySelectorAll('.product-section-thumbnail');
 
-        images.forEach((element)=> element.addEventListener('click', thumbnailClick))
+        images.forEach((element) => element.addEventListener('click', thumbnailClick))
 
-        function thumbnailClick(e){
+        function thumbnailClick(e) {
             currentImage.classList.remove('active');
-            currentImage.addEventListener('transitionend', () =>{
+            currentImage.addEventListener('transitionend', () => {
                 currentImage.src = this.querySelector('img').src;
                 currentImage.classList.add('active');
             });
 
-            images.forEach((element)=> element.classList.remove('selected'));
+            images.forEach((element) => element.classList.remove('selected'));
             this.classList.add('selected');
         }
     })();
