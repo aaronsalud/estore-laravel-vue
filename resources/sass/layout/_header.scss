@@ -57,8 +57,10 @@ header.with-background {
   }
 
   header {
-    background: $gray-background;
-
+    &.layout{
+      background: $gray-background;
+    }
+  
     .top-nav {
       display: flex;
       justify-content: space-between;

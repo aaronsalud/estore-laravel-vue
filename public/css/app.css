@@ -11371,7 +11371,7 @@ header.with-background .hero .button {
   margin-right: 14px;
 }
 
-header {
+header.layout {
   background: #535353;
 }
 

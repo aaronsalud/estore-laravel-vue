@@ -18,7 +18,9 @@
     </head>
     <body>
         <header class="with-background">
+            <header>
             @include('partials.nav')
+            </header>
             <div class="hero container">
                 <div class="hero-copy">
                     <h1>Laravel Ecommerce Demo</h1>
