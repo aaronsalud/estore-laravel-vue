@@ -30,12 +30,10 @@ class Product extends Model
     {
         $images = json_decode($this->images, true);
         $imagePaths = [];
-        
+
         if (isset($images) && count($images) > 0) {
             foreach ($images as $image) {
-                if (isset($image) && file_exists('storage/' . $image)) {
-                    array_push($imagePaths, asset('storage/' . $image));
-                }
+                array_push($imagePaths, generateImageLink($image));
             }
         }
         return $imagePaths;
