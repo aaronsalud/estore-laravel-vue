@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class LandingPageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +16,6 @@ class HomeController extends Controller
     {
         $products = Product::where('featured', true)->inRandomOrder()->take(8)->get();
 
-        return view('home', ['products' => $products]);
+        return view('landing', ['products' => $products]);
     }
 }

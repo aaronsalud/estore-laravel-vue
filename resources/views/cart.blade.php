@@ -10,7 +10,7 @@
 
 <div class="breadcrumbs">
     <div class="container">
-        <a href="{{route('home')}}">Home</a>
+        <a href="{{route('landing')}}">Home</a>
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
         <span>Shopping Cart</span>
     </div>
