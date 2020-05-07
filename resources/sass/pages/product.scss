@@ -13,6 +13,15 @@
     padding: 30px;
     text-align: center;
     height: 400px;
+
+    img {
+        opacity:0;
+        transition:opacity .10s ease-in-out;
+    }
+
+    img.active {
+        opacity:1;
+    }
 }
 
 .product-section-images{
