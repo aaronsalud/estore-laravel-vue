@@ -7,3 +7,15 @@ function getFormattedPrice($price){
 function setActiveItem($p1, $p2, $styleAtttributes = 'active'){
     return $p1 === $p2 ? $styleAtttributes : '';
 }
+
+function generateImageLink($image, $slug=''){
+    if (isset($image) && file_exists('storage/' . $image)) {
+        return asset('storage/' . $image);
+    }
+    else if(!empty($slug) && file_exists('img/products/' . $slug . '.jpg')){
+        return asset('img/products/' . $slug . '.jpg');
+    }
+    else{
+        return asset('img/not-found.jpg');
+    }
+}
