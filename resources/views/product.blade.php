@@ -21,7 +21,7 @@
 <div class="product-section container">
     <div>
         <div class="product-section-image">
-            <img src="{{$product->getImagePath()}}" alt="product" id="currentImage">
+            <img src="{{$product->getImagePath()}}" alt="product" id="currentImage" class="active">
         </div>
         @if($product->images)
         <div class="product-section-images">
@@ -63,7 +63,12 @@
         images.forEach((element)=> element.addEventListener('click', thumbnailClick))
 
         function thumbnailClick(e){
-            currentImage.src = this.querySelector('img').src;
+            currentImage.classList.remove('active');
+            currentImage.addEventListener('transitionend', () =>{
+                currentImage.src = this.querySelector('img').src;
+                currentImage.classList.add('active');
+            });
+
             images.forEach((element)=> element.classList.remove('selected'));
             this.classList.add('selected');
         }
