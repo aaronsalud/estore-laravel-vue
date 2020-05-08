@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Voyager;
 
+use App\Product;
 use App\ProductCategory;
 use Exception;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -337,6 +338,11 @@ class ProductsController extends VoyagerBaseController
 
         event(new BreadDataUpdated($dataType, $data));
 
+        // Update product categories
+        if($request->category){
+            Product::findOrFail($id)->categories()->sync($request->category);
+        }
+       
         if (auth()->user()->can('browse', app($dataType->model_name))) {
             $redirect = redirect()->route("voyager.{$dataType->slug}.index");
         } else {
