@@ -90,15 +90,16 @@
                                 </div>
                             @endforeach
                             
-                            <label for="">Categories</label>
-                            <ul id="categorychecklist">
-                                <li>
-                                    <label for=""><input type="checkbox" name="category1">    Category1</label>
-                                </li>
-                                <li>
-                                    <label for=""><input type="checkbox" name="category1">    Category1</label>
-                                </li>
-                            </ul>
+                            <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width ?? 12 }} {{ $errors->has($row->field) ? 'has-error' : '' }}">
+                                <label>Categories</label>
+                                <ul style="list-style-type:none;padding-left:0;">
+                                    @foreach($productCategories as $category)
+                                    <li>
+                                        <label><input type="checkbox" value="{{$category->id}}" name="category[]"> {{$category->name}}</label>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
 
                         </div><!-- panel-body -->
 
