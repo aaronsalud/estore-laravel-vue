@@ -95,7 +95,7 @@
                                 <ul style="list-style-type:none;padding-left:0;">
                                     @foreach($productCategories as $category)
                                     <li>
-                                        <label><input type="checkbox" value="{{$category->id}}" name="category[]"> {{$category->name}}</label>
+                                        <label><input type="checkbox" value="{{$category->id}}" name="category[]" {{ $mappedCategories->contains($category) ? 'checked' : ''  }}> {{$category->name}}</label>
                                     </li>
                                     @endforeach
                                 </ul>
