@@ -38,16 +38,18 @@ class EstoreInstall extends Command
      */
     public function handle()
     {
-        // Clear pre existing images in the storage folder
-        File::deleteDirectory(public_path('storage/products/dummy'));
+        if ($this->confirm('This will reset ALL your current data. Are you sure you want to proceed?')) {
+            // Clear pre existing images in the storage folder
+            File::deleteDirectory(public_path('storage/products/dummy'));
 
-        $this->callSilent('storage:link');
-        $copySuccessFul = File::copyDirectory(public_path('img/products'), public_path('storage/products/dummy'));
+            $this->callSilent('storage:link');
+            $copySuccessFul = File::copyDirectory(public_path('img/products'), public_path('storage/products/dummy'));
 
-        if($copySuccessFul){
-            $this->info('Images succesfully copied to the storage folder');
+            if ($copySuccessFul) {
+                $this->info('Images succesfully copied to the storage folder');
+            }
+
+            $this->info('EStore app settings initialization complete');
         }
-
-        $this->info('EStore app settings initialization complete');
     }
 }
