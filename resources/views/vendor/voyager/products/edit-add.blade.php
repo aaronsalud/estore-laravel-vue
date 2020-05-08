@@ -89,6 +89,16 @@
                                     @endif
                                 </div>
                             @endforeach
+                            
+                            <label for="">Categories</label>
+                            <ul id="categorychecklist">
+                                <li>
+                                    <label for=""><input type="checkbox" name="category1">    Category1</label>
+                                </li>
+                                <li>
+                                    <label for=""><input type="checkbox" name="category1">    Category1</label>
+                                </li>
+                            </ul>
 
                         </div><!-- panel-body -->
 
