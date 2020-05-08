@@ -39,7 +39,13 @@ class LoginController extends Controller
     }
 
     public function showLoginForm(){
-        session()->put('previousUrl', url()->previous());
+        $previousRoute = explode('/', url()->previous());
+        $previousRouteName = $previousRoute[array_key_last($previousRoute)];
+        $avoidRoutes = ['login', 'register'];
+
+        if(! (in_array($previousRouteName,$avoidRoutes))){
+            session()->put('previousUrl', url()->previous());
+        }
         return view('auth.login');
     }
 
