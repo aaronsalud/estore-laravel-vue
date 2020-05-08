@@ -39,6 +39,10 @@ class EstoreInstall extends Command
     public function handle()
     {
         $this->callSilent('storage:link');
-        File::copyDirectory(public_path('img/products'), public_path('storage/products/dummy'));
+        $copySuccessFul = File::copyDirectory(public_path('img/products'), public_path('storage/products/dummy'));
+
+        if($copySuccessFul){
+            $this->info('Images succesfully copied to the storage folder');
+        }
     }
 }
