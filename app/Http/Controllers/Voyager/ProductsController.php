@@ -339,10 +339,7 @@ class ProductsController extends VoyagerBaseController
 
         event(new BreadDataUpdated($dataType, $data));
 
-        // Update product categories
-        if ($request->category) {
-            Product::findOrFail($id)->categories()->sync($request->category);
-        }
+        $this->updateProductCategories($request->category, $id);
 
         if (auth()->user()->can('browse', app($dataType->model_name))) {
             $redirect = redirect()->route("voyager.{$dataType->slug}.index");
@@ -427,10 +424,7 @@ class ProductsController extends VoyagerBaseController
         $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
         $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
-        // Update product categories
-        if ($request->category) {
-            Product::findOrFail($data->id)->categories()->sync($request->category);
-        }
+        $this->updateProductCategories($request->category, $data->id);
 
         event(new BreadDataAdded($dataType, $data));
 
@@ -942,5 +936,13 @@ class ProductsController extends VoyagerBaseController
 
         // No result found, return empty array
         return response()->json([], 404);
+    }
+
+    private function updateProductCategories($categoryIds=[], $id)
+    {
+        if(!isset($categoryIds)){
+            $categoryIds = [];
+        }
+        Product::findOrFail($id)->categories()->sync($categoryIds);
     }
 }
