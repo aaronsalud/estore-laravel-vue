@@ -13,7 +13,7 @@ class EstoreInstall extends Command
      *
      * @var string
      */
-    protected $signature = 'estore:install';
+    protected $signature = 'estore:install {--force : Do not ask for user confirmation}';
 
     /**
      * The console command description.
