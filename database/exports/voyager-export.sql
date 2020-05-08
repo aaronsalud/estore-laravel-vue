@@ -140,7 +140,7 @@ VALUES
 	(57,7,'name','text','Name',1,1,1,1,1,1,'{\"validation\":{\"rule\":\"required|min:5\"}}',2),
 	(58,7,'slug','text','Slug',1,1,1,1,1,1,'{}',3),
 	(59,7,'details','text','Details',0,1,1,1,1,1,'{}',4),
-	(60,7,'price','number','Price',1,1,1,1,1,1,'{}',5),
+	(60, 7, 'price', 'number', 'Price', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"required|regex:\\/^\\\\d*(\\\\.\\\\d{1,2})?$\\/\"}}', 5),
 	(61,7,'description','rich_text_box','Description',1,1,1,1,1,1,'{}',6),
 	(62,7,'featured','checkbox','Featured',1,1,1,1,1,1,'{\"on\":\"Yes\",\"off\":\"No\"}',7),
 	(63,7,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',8),
@@ -159,8 +159,6 @@ VALUES
 	(76,9,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),
 	(77, 7, 'image', 'image', 'Image', 0, 1, 1, 1, 1, 1, '{}', 8),
 	(78, 7, 'images', 'multiple_images', 'Images', 0, 1, 1, 1, 1, 1, '{}', 9);
-
-
 
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
 UNLOCK TABLES;
