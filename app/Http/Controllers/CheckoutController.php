@@ -22,6 +22,10 @@ class CheckoutController extends Controller
             return redirect()->route('shop.index');
         }
 
+        if(auth()->user() && request()->is('guest-checkout')){
+            return redirect()->route('checkout');
+        }
+
         return view('checkout', [
             'discount' => $this->getPriceCalculations()->get('discount'),
             'newSubtotal' => $this->getPriceCalculations()->get('newSubtotal'),
