@@ -33,12 +33,12 @@
                 <div class="cart-table-row-right">
                     <div class="cart-table-actions">
                         <form action="{{route('cart.destroy', $item->rowId)}}" method="POST">
-                            {{ csrf_field() }}
+                            @csrf
                             {{ method_field('DELETE')}}
                             <button class="cart-options" type="submit">Remove</button>
                         </form>
                         <form action="{{route('saveForLater.store', $item->rowId)}}" method="POST">
-                            {{ csrf_field() }}
+                            @csrf
                             <button class="cart-options" type="submit">Save for later</button>
                         </form>
 
@@ -98,12 +98,12 @@
                 <div class="cart-table-row-right">
                     <div class="cart-table-actions">
                         <form action="{{route('saveForLater.destroy', $item->rowId)}}" method="POST">
-                            {{ csrf_field() }}
+                            @csrf
                             {{ method_field('DELETE')}}
                             <button class="cart-options" type="submit">Remove</button>
                         </form>
                         <form action="{{route('saveForLater.edit', $item->rowId)}}" method="POST">
-                            {{ csrf_field() }}
+                            @csrf
                             {{ method_field('PUT')}}
                             <button class="cart-options" type="submit">Add to cart</button>
                         </form>

@@ -25,7 +25,7 @@
     <div class="checkout-section">
         <div>
             <form action="{{route('checkout.store')}}" method="POST" id="payment-form">
-                {{ csrf_field() }}
+                @csrf
                 <h2>Billing Details</h2>
 
                 <div class="form-group">
@@ -119,7 +119,7 @@
                     @if(session()->has('coupon'))
                     Discount ({{ session()->get('coupon')['name'] }}):
                     <form action="{{route('coupon.destroy')}}"method="POST" style="display:inline;">
-                        {{ csrf_field() }}
+                        @csrf
                         {{ method_field('delete') }}
                         <button type="submit" style="font-size:14px;">Remove</button>
                     </form>
@@ -147,7 +147,7 @@
             <a href="#" class="have-code">Have a Code?</a>
             <div class="have-code-container">
                 <form action="{{route('coupon.store')}}" method="POST">
-                    {{csrf_field()}}
+                    @csrf
                     <input type="text" name="coupon_code" id="coupon_code">
                     <button type="submit" class="button button-plain">Apply</button>
                 </form>
