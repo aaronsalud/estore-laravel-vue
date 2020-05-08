@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Voyager;
 
+use App\ProductCategory;
 use Exception;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -302,7 +303,9 @@ class ProductsController extends VoyagerBaseController
             $view = "voyager::$slug.edit-add";
         }
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
+        $productCategories = ProductCategory::all();
+
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'productCategories'));
     }
 
     // POST BR(E)AD
