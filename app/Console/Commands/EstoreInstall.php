@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 
 class EstoreInstall extends Command
 {
@@ -37,6 +38,7 @@ class EstoreInstall extends Command
      */
     public function handle()
     {
-        $this->call('storage:link');
+        $this->callSilent('storage:link');
+        File::copyDirectory(public_path('img/products'), public_path('storage/products/dummy'));
     }
 }
