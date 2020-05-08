@@ -402,8 +402,9 @@ class ProductsController extends VoyagerBaseController
         }
 
         $productCategories = ProductCategory::all();
+        $mappedCategories = collect([]);
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'productCategories'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'productCategories', 'mappedCategories'));
     }
 
     /**
