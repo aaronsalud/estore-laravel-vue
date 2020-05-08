@@ -245,7 +245,9 @@ class ProductsController extends VoyagerBaseController
             $view = "voyager::$slug.read";
         }
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'isSoftDeleted'));
+        $mappedCategories = implode(", ", ($dataTypeContent->categories()->get()->pluck('name'))->toArray() );
+
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'isSoftDeleted', 'mappedCategories'));
     }
 
     //***************************************
