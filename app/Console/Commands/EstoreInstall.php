@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class EstoreInstall extends Command
@@ -48,6 +49,12 @@ class EstoreInstall extends Command
             if ($copySuccessFul) {
                 $this->info('Images succesfully copied to the storage folder');
             }
+
+            $this->call('migrate:fresh', [
+                '--seed' => true,
+            ]);
+
+            DB::unprepared(file_get_contents(base_path('database/exports/voyager-export.sql')));
 
             $this->info('EStore app settings initialization complete');
         }
