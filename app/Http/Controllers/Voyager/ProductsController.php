@@ -245,7 +245,7 @@ class ProductsController extends VoyagerBaseController
             $view = "voyager::$slug.read";
         }
 
-        $mappedCategories = implode(", ", ($dataTypeContent->categories()->get()->pluck('name'))->toArray() );
+        $mappedCategories = implode(", ", ($dataTypeContent->categories()->get()->pluck('name'))->toArray());
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'isSoftDeleted', 'mappedCategories'));
     }
@@ -335,16 +335,21 @@ class ProductsController extends VoyagerBaseController
         // Check permission
         $this->authorize('edit', $data);
 
+        // Prevent categories field to be updated using default way
+        $categoryIds = $request->categories;
+        $request->request->remove('categories');
+        $dataType->editRows = collect($dataType->editRows->where('field', '!=', 'categories'));
+
         // Validate fields with ajax
         $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id)->validate();
-        
+
         $request['price'] = $request->price * 100;
 
         $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
 
         event(new BreadDataUpdated($dataType, $data));
 
-        $this->updateProductCategories($request->category, $id);
+        $this->updateProductCategories($categoryIds, $id);
 
         if (auth()->user()->can('browse', app($dataType->model_name))) {
             $redirect = redirect()->route("voyager.{$dataType->slug}.index");
@@ -425,14 +430,19 @@ class ProductsController extends VoyagerBaseController
         // Check permission
         $this->authorize('add', app($dataType->model_name));
 
+        // Prevent categories field to be created with the Product instance using default way
+        $categoryIds = $request->categories;
+        $request->request->remove('categories');
+        $dataType->addRows = collect($dataType->addRows->where('field', '!=', 'categories'));
+
         // Validate fields with ajax
         $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
-        
+
         $request['price'] = $request->price * 100;
-        
+
         $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
-        $this->updateProductCategories($request->category, $data->id);
+        $this->updateProductCategories($categoryIds, $data->id);
 
         event(new BreadDataAdded($dataType, $data));
 
@@ -946,9 +956,9 @@ class ProductsController extends VoyagerBaseController
         return response()->json([], 404);
     }
 
-    private function updateProductCategories($categoryIds=[], $id)
+    private function updateProductCategories($categoryIds = [], $id)
     {
-        if(!isset($categoryIds)){
+        if (!isset($categoryIds)) {
             $categoryIds = [];
         }
         Product::findOrFail($id)->categories()->sync($categoryIds);
