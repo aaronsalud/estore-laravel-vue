@@ -36,6 +36,22 @@
     </div>
 @stop
 
+@section('css')
+    <style>
+        .order-error{
+            color: #a94442;
+            background-color:#f2dede !important;
+            border-color:#ebccd1;
+        }
+
+        .order-shipped{
+            color:#3c763d;
+            background-color:#dff0d8 !important;
+            border-color:#d6e9c6;
+        }
+    </style>
+@stop
+
 @section('content')
     <div class="page-content browse container-fluid">
         @include('voyager::alerts')
@@ -106,7 +122,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach($dataTypeContent as $data)
-                                    <tr>
+                                    <tr class="{{ !empty($data->error) ? 'order-error' : '' }} {{ $data->shipped ? 'order-shipped' : '' }}" >
                                         @if($showCheckboxColumn)
                                             <td>
                                                 <input type="checkbox" name="row_id" id="checkbox_{{ $data->getKey() }}" value="{{ $data->getKey() }}">
