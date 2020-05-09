@@ -204,7 +204,8 @@ VALUES
 	(6,'pages','pages','Page','Pages','voyager-file-text','TCG\\Voyager\\Models\\Page',NULL,'','',1,0,NULL,'2020-05-06 15:43:21','2020-05-06 15:43:21'),
 	(7,'products','products','Product','Products','voyager-bag','App\\Product',NULL,'\\App\\Http\\Controllers\\Voyager\\ProductsController',NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2020-05-06 18:00:28','2020-05-06 18:25:38'),
 	(8,'product_categories','product-categories','Product Category','Product Categories','voyager-categories','App\\ProductCategory',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2020-05-06 18:27:51','2020-05-06 18:27:51'),
-	(9,'coupons','coupons','Coupon','Coupons','voyager-dollar','App\\Coupon',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2020-05-06 18:56:28','2020-05-06 18:56:28');
+	(9,'coupons','coupons','Coupon','Coupons','voyager-dollar','App\\Coupon',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2020-05-06 18:56:28','2020-05-06 18:56:28'),
+	(10, 'orders', 'orders', 'Order', 'Orders', 'voyager-documentation', 'App\\Order', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-05-09 00:27:56', '2020-05-09 00:32:03');
 
 /*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -259,7 +260,9 @@ VALUES
 	(19,2,'Shop','','_self',NULL,'#000000',NULL,13,'2020-05-06 19:36:41','2020-05-06 19:36:41','shop.index',NULL),
 	(20,2,'About','#','_self',NULL,'#000000',NULL,14,'2020-05-06 19:37:29','2020-05-06 19:37:29',NULL,''),
 	(21,2,'Blog','#','_self',NULL,'#000000',NULL,15,'2020-05-06 19:37:41','2020-05-06 19:37:41',NULL,''),
-	(22,3,'fa-github','https://github.com/aaronsalud','_self',NULL,'#000000',NULL,17,'2020-05-06 19:57:39','2020-05-06 19:57:39',NULL,'');
+	(22,3,'fa-github','https://github.com/aaronsalud','_self',NULL,'#000000',NULL,17,'2020-05-06 19:57:39','2020-05-06 19:57:39',NULL,''),
+	(23, 1, 'Orders', '', '_self', 'voyager-documentation', '#000000', NULL, 2, '2020-05-09 00:27:56', '2020-05-09 00:35:24', 'voyager.orders.index', 'null');
+
 
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
 UNLOCK TABLES;
