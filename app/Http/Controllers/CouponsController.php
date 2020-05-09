@@ -30,6 +30,11 @@ class CouponsController extends Controller
         ]);
 
         Alert::toast('Discount coupon has been applied!','success');
+
+        if(!auth()->user()){
+            return redirect()->route('guestCheckout.index');
+        }
+
         return redirect()->route('checkout');
     }
 
@@ -42,6 +47,11 @@ class CouponsController extends Controller
     {
         session()->forget('coupon');
         Alert::toast('Discount coupon has been removed','success');
+
+        if(!auth()->user()){
+            return redirect()->route('guestCheckout.index');
+        }
+
         return redirect()->route('checkout');
     }
 }
