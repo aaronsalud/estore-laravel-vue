@@ -127,9 +127,15 @@
                                 @endif
                             @else
                                 @include('voyager::multilingual.input-hidden-bread-read')
-                                @if($row->field === 'categories')
-                                    {{ collect($dataTypeContent->{$row->field})->implode('name', ', ') }}
-                                @elseif($row->field === 'price')
+                                @if($row->field === 'user')
+                                    {{ $dataTypeContent->{$row->field}->name  }}
+                                @elseif($row->field === 'products')
+                                <ul style="list-style-type:none;padding:0;">
+                                    @foreach($dataTypeContent->{$row->field} as $product)
+                                    <li>{{ $product->pivot->quantity . ' x ' . $product->name  }}</li>
+                                    @endforeach
+                                </ul>
+                                @elseif(collect(['billing_discount', 'billing_subtotal', 'billing_tax', 'billing_total'])->contains($row->field))
                                 {{ '$' . ($dataTypeContent->{$row->field} / 100) }}
                                 @else
                                 <p>{{ $dataTypeContent->{$row->field} }}</p>
@@ -140,6 +146,7 @@
                             <hr style="margin:0;">
                         @endif
                     @endforeach
+
                 </div>
             </div>
         </div>

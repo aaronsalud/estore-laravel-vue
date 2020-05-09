@@ -159,7 +159,30 @@ VALUES
 	(76,9,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',7),
 	(77,7,'image','image','Image',0,1,1,1,1,1,'{}',9),
 	(78,7,'images','multiple_images','Images',0,1,1,1,1,1,'{}',10),
-	(79,7,'categories','text','Categories',0,1,1,1,1,1,'{}',7);
+	(79,7,'categories','text','Categories',0,1,1,1,1,1,'{}',7),
+	(80, 10, 'id', 'text', 'Id', 1, 1, 1, 1, 1, 0, '{}', 1),
+	(82, 10, 'billing_email', 'text', 'Billing Email', 0, 1, 1, 1, 1, 1, '{}', 3),
+	(83, 10, 'billing_name', 'text', 'Billing Name', 0, 1, 1, 1, 1, 1, '{}', 4),
+	(84, 10, 'billing_address', 'text', 'Billing Address', 0, 1, 1, 1, 1, 1, '{}', 5),
+	(85, 10, 'billing_city', 'text', 'Billing City', 0, 1, 1, 1, 1, 1, '{}', 6),
+	(86, 10, 'billing_province', 'text', 'Billing Province', 0, 1, 1, 1, 1, 1, '{}', 7),
+	(87, 10, 'billing_postalcode', 'text', 'Billing Postalcode', 0, 1, 1, 1, 1, 1, '{}', 8),
+	(88, 10, 'billing_phone', 'text', 'Billing Phone', 0, 1, 1, 1, 1, 1, '{}', 9),
+	(89, 10, 'billing_name_on_card', 'text', 'Billing Name On Card', 0, 1, 1, 1, 1, 1, '{}', 10),
+	(90, 10, 'billing_discount', 'number', 'Billing Discount', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"required|regex:\\/^\\\\d*(\\\\.\\\\d{1,2})?$\\/\"}}', 11),
+	(91, 10, 'billing_discount_code', 'text', 'Billing Discount Code', 0, 1, 1, 1, 1, 1, '{}', 12),
+	(92, 10, 'billing_subtotal', 'number', 'Billing Subtotal', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"required|regex:\\/^\\\\d*(\\\\.\\\\d{1,2})?$\\/\"}}', 13),
+	(93, 10, 'billing_tax', 'number', 'Billing Tax', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"required|regex:\\/^\\\\d*(\\\\.\\\\d{1,2})?$\\/\"}}', 14),
+	(94, 10, 'billing_total', 'number', 'Billing Total', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"required|regex:\\/^\\\\d*(\\\\.\\\\d{1,2})?$\\/\"}}', 15),
+	(95, 10, 'payment_gateway', 'text', 'Payment Gateway', 1, 1, 1, 1, 1, 1, '{}', 16),
+	(96, 10, 'shipped', 'checkbox', 'Shipped', 1, 1, 1, 1, 1, 1, '{\"on\":\"Yes\",\"off\":\"No\"}', 17),
+	(97, 10, 'error', 'text', 'Error', 0, 1, 1, 1, 1, 1, '{}', 18),
+	(98, 10, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 19),
+	(99, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 20),
+	(101, 10, 'user_id', 'text', 'User Id', 0, 0, 0, 0, 0, 0, '{}', 1),
+	(102, 10, 'user', 'text', 'User', 1, 1, 1, 0, 0, 0, '{}', 2),
+	(103, 10, 'products', 'text', 'Products', 1, 1, 1, 0, 0, 0, '{}', 2);
+
 
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
 UNLOCK TABLES;
