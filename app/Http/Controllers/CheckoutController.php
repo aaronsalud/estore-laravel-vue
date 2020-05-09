@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckoutRequest;
+use App\Mail\OrderPlaced;
 use App\Order;
 use App\OrderProduct;
 use Cartalyst\Stripe\Exception\CardErrorException;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CheckoutController extends Controller
@@ -62,7 +64,9 @@ class CheckoutController extends Controller
                 ]
             ]);
 
-            $this->addToOrdersTables($request, null);
+            $order = $this->addToOrdersTables($request, null);
+
+            Mail::send(new OrderPlaced, $order);
 
             //Successful
             Cart::instance('default')->destroy();
