@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckoutRequest;
+use App\Order;
+use App\OrderProduct;
 use Cartalyst\Stripe\Exception\CardErrorException;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -60,6 +62,8 @@ class CheckoutController extends Controller
                 ]
             ]);
 
+            $this->addToOrdersTables($request, null);
+
             //Successful
             Cart::instance('default')->destroy();
             session()->forget('coupon');
@@ -67,6 +71,7 @@ class CheckoutController extends Controller
         }
         catch(CardErrorException $e){
             Alert::toast($e->getMessage(),'error');
+            $this->addToOrdersTables($request, $e->getMessage());
             return back();
         }
     }
@@ -85,5 +90,38 @@ class CheckoutController extends Controller
             'newTax' => $newTax,
             'newTotal' => $newTotal
         ]);
+    }
+
+    private function addToOrdersTables($request, $error)
+    {
+        // Insert into orders table
+        $order = Order::create([
+            'user_id' => auth()->user() ? auth()->user()->id : null,
+            'billing_email' => $request->email,
+            'billing_name' => $request->name,
+            'billing_address' => $request->address,
+            'billing_city' => $request->city,
+            'billing_province' => $request->province,
+            'billing_postalcode' => $request->postalcode,
+            'billing_phone' => $request->phone,
+            'billing_name_on_card' => $request->name_on_card,
+            'billing_discount' => $this->getPriceCalculations()->get('discount'),
+            'billing_discount_code' => session()->get('coupon')['name'] ?? null,
+            'billing_subtotal' => $this->getPriceCalculations()->get('newSubtotal'),
+            'billing_tax' => $this->getPriceCalculations()->get('newTax'),
+            'billing_total' => $this->getPriceCalculations()->get('newTotal'),
+            'error' => $error,
+        ]);
+
+        // Insert into order_product table
+        foreach (Cart::content() as $item) {
+            OrderProduct::create([
+                'order_id' => $order->id,
+                'product_id' => $item->model->id,
+                'quantity' => $item->qty,
+            ]);
+        }
+
+        return $order;
     }
 }
