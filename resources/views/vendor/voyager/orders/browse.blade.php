@@ -250,7 +250,11 @@
                                                     @endif
                                                 @else
                                                     @include('voyager::multilingual.input-hidden-bread-browse')
+                                                    @if(collect(['billing_discount', 'billing_subtotal', 'billing_tax', 'billing_total'])->contains($row->field))
+                                                    <span>${{ $data->{$row->field} / 100 }}</span>
+                                                    @else
                                                     <span>{{ $data->{$row->field} }}</span>
+                                                    @endif
                                                 @endif
                                             </td>
                                         @endforeach
