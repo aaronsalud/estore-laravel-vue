@@ -181,6 +181,12 @@
                                                     @include('voyager::multilingual.input-hidden-bread-browse')
                                                     @if($row->field === 'user')
                                                     {{ $data->{$row->field} ? $data->{$row->field}->name : 'Guest' }}
+                                                    @elseif($row->field === 'products')
+                                                    <ul style="list-style-type:none;padding:0;">
+                                                        @foreach($data->{$row->field} as $product)
+                                                        <li>{{ $product->pivot->quantity . ' x ' . $product->name  }}</li>
+                                                        @endforeach
+                                                    </ul>
                                                     @else
                                                     <div>{{ mb_strlen( $data->{$row->field} ) > 200 ? mb_substr($data->{$row->field}, 0, 200) . ' ...' : $data->{$row->field} }}</div>
                                                     @endif
