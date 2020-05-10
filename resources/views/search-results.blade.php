@@ -32,7 +32,7 @@
             <tr>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->details }}</td>
-                <td>{!! $product->description !!}</td>
+                <td>{!! Str::limit($product->description, 80 )!!}</td>
                 <td>{{ $product->getFormattedPrice() }}</td>
             </tr>
         @endforeach
