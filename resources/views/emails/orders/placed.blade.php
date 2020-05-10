@@ -30,7 +30,7 @@ Hello {{ $order->billing_name }}, we have received your order.
         <tr style="border-top:1px solid; background-color:yellow;">
             <td></td>
             <td>Discount:</td>
-            <td>${{ round($order->billing_discount / 100, 2) }}</td>
+            <td>-${{ round($order->billing_discount / 100, 2) }}</td>
         </tr>
         @endif
         <tr style="border-top:1px solid; background-color:yellow;">
