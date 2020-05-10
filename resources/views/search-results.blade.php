@@ -17,7 +17,7 @@
 <div class="search-container container my-3">
     
     <h1>Search Results</h1>
-    <p>{{ $products->count()}} result(s) for keyword '{{request()->input('query')}}'</p>
+    <p>{{ $products->total()}} result(s) for keyword '{{request()->input('query')}}'</p>
 
     <table class="table table-bordered table-striped my-3">
         <thead>
