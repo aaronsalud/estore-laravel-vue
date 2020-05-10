@@ -21,27 +21,27 @@ Hello {{ $order->billing_name }}, we have received your order.
             <td>${{ round($product->price / 100, 2)}}</td>
         </tr>
         @endforeach
-        <tr style="border-top:1px solid; background-color:yellow;">
+        <tr style="border-top:1px solid; ">
             <td></td>
-            <td>Subtotal:</td>
-            <td>${{ round($order->billing_subtotal / 100, 2) }}</td>
+            <td style="background-color:yellow;">Total before tax:</td>
+            <td style="background-color:yellow;">${{ round($order->billing_subtotal / 100, 2) }}</td>
         </tr>
         @if($order->billing_discount )
-        <tr style="border-top:1px solid; background-color:yellow;">
+        <tr style="border-top:1px solid;">
             <td></td>
-            <td>Discount:</td>
-            <td>-${{ round($order->billing_discount / 100, 2) }}</td>
+            <td style="background-color:yellow;">Discount:</td>
+            <td style="background-color:yellow;">-${{ round($order->billing_discount / 100, 2) }}</td>
         </tr>
         @endif
-        <tr style="border-top:1px solid; background-color:yellow;">
+        <tr style="border-top:1px solid;">
             <td></td>
-            <td>Tax:</td>
-            <td>${{ round($order->billing_tax / 100, 2) }}</td>
+            <td style="background-color:yellow;">Tax (13%):</td>
+            <td style="background-color:yellow;">${{ round($order->billing_tax / 100, 2) }}</td>
         </tr>
-        <tr style="border-top:1px solid; background-color:yellow;">
+        <tr style="border-top:1px solid;">
             <td></td>
-            <td>Total:</td>
-            <td>${{ round($order->billing_total / 100, 2) }}</td>
+            <td style="background-color:yellow;">Total:</td>
+            <td style="background-color:yellow;">${{ round($order->billing_total / 100, 2) }}</td>
         </tr>
     </tbody>
 </table>
