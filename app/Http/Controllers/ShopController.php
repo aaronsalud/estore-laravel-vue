@@ -52,4 +52,8 @@ class ShopController extends Controller
         $productsMightLike = Product::where('slug', '!=', $product->slug)->mightLike()->get();
         return view('product', ['product' => $product, 'productsMightLike' => $productsMightLike]);
     }
+
+    public function search(Request $request){
+        return view('search-results');
+    }
 }
