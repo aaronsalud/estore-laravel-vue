@@ -1,14 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email</title>
-</head>
-<body>
-    <div> Order ID: {{ $order->id }} </div>
-    <div> Order Email: {{ $order->billing_email }} </div>
-    <div> Order Billing Name: {{ $order->billing_name }} </div>
-    <div> Order Total: ${{ $order->billing_total / 100 }} </div>
-</body>
-</html>
+@component('mail::message')
+# Order Received
+
+Hello {{ $order->billing_name }}, we have received your order.
+
+**Order ID:** {{ $order->id }}
+
+<table class="table" style="width:100%;text-align:center;margin:20px 0;">
+    <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($order->products as $product)
+        <tr>
+            <td>x{{ $product->pivot->quantity }}</td>
+            <td> {{ $product->name }}</td>
+            <td>${{ round($product->price / 100, 2)}}</td>
+        </tr>
+        @endforeach
+        <tr style="border-top:1px solid; background-color:yellow;">
+            <td></td>
+            <td>Subtotal:</td>
+            <td>${{ round($order->billing_subtotal / 100, 2) }}</td>
+        </tr>
+        @if($order->billing_discount )
+        <tr style="border-top:1px solid; background-color:yellow;">
+            <td></td>
+            <td>Discount:</td>
+            <td>${{ round($order->billing_discount / 100, 2) }}</td>
+        </tr>
+        @endif
+        <tr style="border-top:1px solid; background-color:yellow;">
+            <td></td>
+            <td>Tax:</td>
+            <td>${{ round($order->billing_tax / 100, 2) }}</td>
+        </tr>
+        <tr style="border-top:1px solid; background-color:yellow;">
+            <td></td>
+            <td>Total:</td>
+            <td>${{ round($order->billing_total / 100, 2) }}</td>
+        </tr>
+    </tbody>
+</table>
+
+You can get further details about your order by logging into our website.
+
+@component('mail::button', ['url' => config('app.url'), 'color' => 'green'])
+Go to Website
+@endcomponent
+
+Thank you again for choosing us.
+
+Regards,<br>
+EStore
+@endcomponent
