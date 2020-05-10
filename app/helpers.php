@@ -1,5 +1,7 @@
 <?php
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 function getFormattedPrice($price){
     return '$' . number_format($price / 100, 2); 
 }
@@ -18,4 +20,8 @@ function generateImageLink($image, $slug=''){
     else{
         return asset('img/not-found.jpg');
     }
+}
+
+function displayErrorToast($message){
+    Alert::toast($message,'error');
 }
