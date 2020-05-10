@@ -58,7 +58,9 @@ class ShopController extends Controller
             'query' => 'required|min:3'
         ]);
 
-        $products = Product::where('name', 'like', '%'. $request['query'] . '%')->get();
+        $perPage = 10;
+
+        $products = Product::where('name', 'like', '%'. $request['query'] . '%')->paginate($perPage);
         return view('search-results', ['products' => $products]);
     }
 }
