@@ -34,6 +34,6 @@ class OrderPlaced extends Mailable
         return $this
             ->to($this->order->billing_email, $this->order->billing_name)
             ->subject('Order has been placed')
-        ->view('emails.orders.placed');
+        ->markdown('emails.orders.placed');
     }
 }
