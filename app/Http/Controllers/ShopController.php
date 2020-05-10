@@ -54,6 +54,7 @@ class ShopController extends Controller
     }
 
     public function search(Request $request){
-        return view('search-results');
+        $products = Product::where('name', 'like', '%'. $request['query'] . '%')->get();
+        return view('search-results', ['products' => $products]);
     }
 }
