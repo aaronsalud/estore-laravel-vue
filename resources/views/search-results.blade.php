@@ -21,6 +21,7 @@
     <table class="table table-bordered table-striped ">
         <thead>
             <tr>
+                <th></th>
                 <th>Name</th>
                 <th>Details</th>
                 <th>Description</th>
@@ -30,6 +31,7 @@
         <tbody>
         @foreach($products as $product)
             <tr>
+                <td><img src="{{$product->getImagePath()}}" alt="{{ $product->name }}"></td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->details }}</td>
                 <td>{!! Str::limit($product->description, 80 )!!}</td>
