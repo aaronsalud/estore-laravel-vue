@@ -60,7 +60,12 @@ class ShopController extends Controller
 
         $perPage = 10;
 
-        $products = Product::where('name', 'like', '%'. $request['query'] . '%')->paginate($perPage);
+        $searchQuery = '%'. $request['query'] . '%';
+
+        $products = Product::where('name', 'like', $searchQuery)
+        ->orWhere('details','like', $searchQuery)
+        ->orWhere('description','like' ,$searchQuery)
+        ->paginate($perPage);
         return view('search-results', ['products' => $products]);
     }
 }
