@@ -8,13 +8,11 @@
 
 @section('content')
 
-<div class="breadcrumbs">
-    <div class="container">
-        <a href="{{route('landing')}}">Home</a>
-        <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span>Shop</span>
-    </div>
-</div> <!-- end breadcrumbs -->
+<x-breadcrumbs>
+    <a href="{{route('landing')}}">Home</a>
+    <i class="fa fa-chevron-right breadcrumb-separator"></i>
+    <span>Shop</span>
+</x-breadcrumbs>
 
 <div class="products-section container">
     <div class="sidebar">
