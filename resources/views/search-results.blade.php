@@ -15,7 +15,15 @@
 </x-breadcrumbs>
 
 <div class="search-container container">
-    welcome
+    <h1>Search Results</h1>
+    <p>{{ $products->count()}} result(s) for '{{request()->input('query')}}'</p>
+
+    <ul>
+
+    @foreach($products as $product)
+    <li>{{$product->name}}</li>
+    @endforeach
+    </ul>
 </div> 
 @endsection
 
