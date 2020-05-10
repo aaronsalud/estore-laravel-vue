@@ -28,7 +28,9 @@
     <header class="layout">
         @include('partials.nav')
     </header>
-
+    @error('query')
+        {{ displayErrorToast($message) }}
+    @enderror
     @yield('content')
 
     @include('partials.footer')
@@ -36,5 +38,7 @@
     @yield('extra-js')
 
     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
+
 </body>
 </html>
