@@ -14,12 +14,16 @@
         hits: instantsearch.widgets.hits({
             container: '#hits',
             templates: {
-                item(hit) {
+                empty: 'No Results found',
+                item: function(item) {
                     return `
-            <div>
-              <p>${instantsearch.highlight({ attribute: 'name', highlightedTagName: 'mark', hit })}</p>
-            </div>
-          `;
+                  <div class="result-title">
+                    ${item._highlightResult.name.value}
+                  </div>
+                  <div class="result-details">
+                    ${item._highlightResult.details.value}
+                  </div>
+                `;
                 }
             }
         }),
