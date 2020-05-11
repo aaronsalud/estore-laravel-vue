@@ -7,6 +7,16 @@
 <div class="container">
     <div class="auth-pages">
         <div class="auth-left">
+            @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
             <h2>Returning Customer</h2>
             <div class="spacer"></div>
             <form method="POST" action="{{ route('login') }}">
