@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap:100px;
+    height: calc(100vh - 412px);
 
     input{
         border: 1px solid $text-color-light;

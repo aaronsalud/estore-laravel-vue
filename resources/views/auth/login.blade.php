@@ -48,8 +48,7 @@
                 <div class="spacer"></div>
                 <a href="{{ route('guestCheckout.index') }}" class="auth-button-hollow">Continue as Guest</a>
             </div>
-            <div class="spacer"></div>
-            <div>
+            <div class="mt-5">
                 <p class="font-weight-bold">Save time later.</p>
                 <p>Create an account for fast checkout and easy access to orders.</p>
                 <div class="spacer"></div>

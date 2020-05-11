@@ -12000,6 +12000,7 @@ h1.checkout-heading {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 100px;
+  height: calc(100vh - 412px);
 }
 
 .auth-pages input {
