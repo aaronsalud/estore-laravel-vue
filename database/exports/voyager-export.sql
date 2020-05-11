@@ -430,7 +430,12 @@ VALUES
 	(58,1),
 	(59,1),
 	(60,1),
-	(61,1);
+	(61,1),
+	(62,1),
+	(63,1),
+	(64,1),
+	(66,1);
+
 
 /*!40000 ALTER TABLE `permission_role` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -516,7 +521,13 @@ VALUES
 	(58,'read_product_product_category','product_product_category','2020-05-06 19:06:49','2020-05-06 19:06:49'),
 	(59,'edit_product_product_category','product_product_category','2020-05-06 19:06:49','2020-05-06 19:06:49'),
 	(60,'add_product_product_category','product_product_category','2020-05-06 19:06:49','2020-05-06 19:06:49'),
-	(61,'delete_product_product_category','product_product_category','2020-05-06 19:06:49','2020-05-06 19:06:49');
+	(61,'delete_product_product_category','product_product_category','2020-05-06 19:06:49','2020-05-06 19:06:49'),
+	(62, 'browse_orders', 'orders', '2020-05-11 17:41:44', '2020-05-11 17:41:44'),
+	(63, 'read_orders', 'orders', '2020-05-11 17:41:44', '2020-05-11 17:41:44'),
+	(64, 'edit_orders', 'orders', '2020-05-11 17:41:44', '2020-05-11 17:41:44'),
+	(65, 'add_orders', 'orders', '2020-05-11 17:41:44', '2020-05-11 17:41:44'),
+	(66, 'delete_orders', 'orders', '2020-05-11 17:41:44', '2020-05-11 17:41:44');
+
 
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 UNLOCK TABLES;
