@@ -1,4 +1,4 @@
-(function () {
+(function() {
     var client = algoliasearch('D1UAWETDYG', '58c046b56e1f77dfa82c4fe2b11f8160');
     var index = client.initIndex('products');
     var enterPressed = false;
@@ -7,23 +7,22 @@
         return function doSearch(query, cb) {
             index
                 .search(query, params)
-                .then(function (res) {
+                .then(function(res) {
                     cb(res.hits, res);
                 })
-                .catch(function (err) {
+                .catch(function(err) {
                     console.error(err);
                     cb([]);
                 });
         };
     }
 
-    autocomplete('#search-input', { hint: false }, [
-        {
-            source: newHitsSource(index, { hitsPerPage: 5 }),
-            displayKey: 'name',
-            templates: {
-                suggestion: function (suggestion) {
-                    const markup = `
+    autocomplete('#search-input', { hint: false }, [{
+        source: newHitsSource(index, { hitsPerPage: 5 }),
+        displayKey: 'name',
+        templates: {
+            suggestion: function(suggestion) {
+                const markup = `
                         <div class="algolia-result">
                             <span>${suggestion._highlightResult.name.value}</span>
                             <span>$${(suggestion.price / 100).toFixed(2)}</span>
@@ -33,19 +32,18 @@
                         </div>
                     `;
 
-                    return markup;
-                },
-                empty: function(result){
-                    return `<span>Sorry, we id not find any results for ${result.query}</span>`
-                }
+                return markup;
+            },
+            empty: function(result) {
+                return `<span>Sorry, we id not find any results for ${result.query}</span>`
             }
         }
-    ]).on('autocomplete:selected', function (event, suggestion, dataset, context) {
+    }]).on('autocomplete:selected', function(event, suggestion, dataset, context) {
         window.location.href = window.location.origin + '/shop/' + suggestion.slug;
         enterPressed = true;
-    }).on('keyup', function(event){
-        if(event.keyCode === 13 && !enterPressed){
-            window.location.href = window.location.origin + '/search-algolia';
+    }).on('keyup', function(event) {
+        if (event.keyCode === 13 && !enterPressed) {
+            window.location.href = window.location.origin + '/search-algolia?products%5Bquery%5D=' + document.getElementById('search-input').value;
         }
     });
 })();
