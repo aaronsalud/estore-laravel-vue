@@ -6,9 +6,9 @@
         </form>
     </div>
     <div class="mx-1">
-        <form action="#" class="search-form">
+        <div class="position-relative">
             <i class="fa fa-search search-icon"></i>
             <input class="search-box" id="search-input" name="query" type="text" placeholder='Search for product with algolia' />
-        </form>
+        </div>
     </div>
 </div>
