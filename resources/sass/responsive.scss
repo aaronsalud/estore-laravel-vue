@@ -146,7 +146,6 @@
 
     }
 
-
     .checkout-section {
         grid-template-columns: 1fr;
 
@@ -167,6 +166,7 @@
     }
 
     .auth-right{
+        border-top: 1px solid #CDCDCD;
         border-left:0 !important;
         padding:20px !important;
     }
