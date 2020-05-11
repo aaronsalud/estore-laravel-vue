@@ -13,14 +13,14 @@
     <a href="{{route('landing')}}">Home</a>
     <i class="fa fa-chevron-right breadcrumb-separator"></i>
     <span>Search</span>
-
-    <div id ="hits">
-    </div>
 </x-breadcrumbs>
 
 <div class="search-container container my-3">
     
     <h1>Search Results</h1>
+
+    <div id="search-box"></div>
+    <div id ="hits"></div>
 </div> 
 @endsection
 
