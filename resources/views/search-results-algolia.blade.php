@@ -21,10 +21,10 @@
     <div class="container">
         <div class="my-3" id="search-box"></div>
         <div id="stats"></div>
+        <div id="refinement-list"></div>
         <div id="hits"></div>
         <div class="my-3" id="pagination"></div>
     </div>
-
 </div>
 @endsection
 

@@ -17,7 +17,6 @@
             templates: {
                 empty: 'No Results found',
                 item: function(item) {
-                    console.log(item);
                     let markdown = `
                         <div class="result-title">${item._highlightResult.name.value}</div>
                         <div class="result-details">${item._highlightResult.details.value}</div>
@@ -36,6 +35,10 @@
         }),
         stats: instantsearch.widgets.stats({
             container: '#stats',
+        }),
+        refinementList: instantsearch.widgets.refinementList({
+            container: '#refinement-list',
+            attribute: 'category',
         })
     };
 
