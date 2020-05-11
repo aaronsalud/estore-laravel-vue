@@ -11328,6 +11328,7 @@ form button[type=submit] {
   position: absolute;
   top: 12px;
   left: 12px;
+  z-index: 2;
 }
 
 .search-box {
@@ -11335,14 +11336,12 @@ form button[type=submit] {
   width: 400px;
   max-width: 100%;
   font-size: 14px;
+  outline: none;
+  border-radius: 20px;
+  border: none;
 }
 
 .algolia-autocomplete {
-  width: 100%;
-}
-
-.algolia-autocomplete .aa-input,
-.algolia-autocomplete .aa-hint {
   width: 100%;
 }
 
