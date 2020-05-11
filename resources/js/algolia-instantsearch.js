@@ -3,7 +3,7 @@
 
     const search = instantsearch({
         indexName: 'products',
-        searchClient,
+        searchClient
     });
 
     const widgets = {
@@ -16,14 +16,17 @@
             templates: {
                 empty: 'No Results found',
                 item: function(item) {
-                    return `
-                  <div class="result-title">
-                    ${item._highlightResult.name.value}
-                  </div>
-                  <div class="result-details">
-                    ${item._highlightResult.details.value}
-                  </div>
-                `;
+                    console.log(item);
+                    let markdown = `
+                        <div class="result-title">${item._highlightResult.name.value}</div>
+                        <div class="result-details">${item._highlightResult.details.value}</div>
+                        <div class="result-price">$${(item.price / 100).toFixed(2)}</div>
+                    `;
+                    if (item.image) {
+                        markdown += `<img src="${window.location.origin}/storage/${item.image}" alt="img" class="algolia-thumb-result"/>`;
+                    }
+
+                    return markdown;
                 }
             }
         }),
