@@ -4,4 +4,16 @@
     display: grid;
     grid-template-columns: 3fr 7fr;
     grid-gap: 20px;
+    #hits {
+        .ais-Hits-list {
+            display: block !important;
+            .ais-Hits-item {
+                width: 100% !important;
+                margin-top: 0 !important;
+                box-shadow: none !important;
+                border: 0 !important;
+                border-bottom: 1px solid #c4c8d8 !important;
+            }
+        }
+    }
 }

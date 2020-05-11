@@ -11983,3 +11983,15 @@ h1.checkout-heading {
   grid-gap: 20px;
 }
 
+.search-results-algolia-container #hits .ais-Hits-list {
+  display: block !important;
+}
+
+.search-results-algolia-container #hits .ais-Hits-list .ais-Hits-item {
+  width: 100% !important;
+  margin-top: 0 !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-bottom: 1px solid #c4c8d8 !important;
+}
+
