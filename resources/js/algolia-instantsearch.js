@@ -38,11 +38,11 @@
         }),
         refinementList: instantsearch.widgets.refinementList({
             container: '#refinement-list',
-            attribute: 'category',
+            attribute: 'categories',
         })
     };
 
-    search.addWidgets([widgets.searchBox, widgets.hits, widgets.pagination, widgets.stats]);
+    search.addWidgets([widgets.searchBox, widgets.hits, widgets.pagination, widgets.stats, widgets.refinementList]);
 
     search.start();
 })();
