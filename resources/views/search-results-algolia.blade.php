@@ -16,13 +16,15 @@
 </x-breadcrumbs>
 
 <div class="search-container container my-3">
-    
-    <h1>Search Results</h1>
 
-    <div id="search-box"></div>
-    <div id ="hits"></div>
-    <div id="pagination"></div>
-</div> 
+    <h1>Search Results</h1>
+    <div class="container">
+        <div class="my-3" id="search-box"></div>
+        <div id="hits"></div>
+        <div class="my-3" id="pagination"></div>
+    </div>
+
+</div>
 @endsection
 
 @section('extra-js')
