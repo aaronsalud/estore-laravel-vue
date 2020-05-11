@@ -33,6 +33,6 @@
             }
         }
     ]).on('autocomplete:selected', function (event, suggestion, dataset, context) {
-        console.log(event, suggestion, dataset, context);
+        window.location.href = window.location.origin + '/shop/' + suggestion.slug;
     });
 })();
