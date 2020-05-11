@@ -22,10 +22,17 @@
             displayKey: 'name',
             templates: {
                 suggestion: function (suggestion) {
-                    return `
-                        <span>${suggestion._highlightResult.name.value}</span>
-                        <span>${suggestion.price}</span> 
+                    const markup = `
+                        <div class="algolia-result">
+                            <span>${suggestion._highlightResult.name.value}</span>
+                            <span>$${(suggestion.price / 100).toFixed(2)}</span>
+                        </div>
+                        <div class="algolia-details">
+                            <span>${suggestion._highlightResult.details.value}</span>
+                        </div>
                     `;
+
+                    return markup;
                 },
                 empty: function(result){
                     return `<span>Sorry, we id not find any results for ${result.query}</span>`
