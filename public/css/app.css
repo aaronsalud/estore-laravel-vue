@@ -12037,3 +12037,16 @@ h1.checkout-heading {
   padding-left: 100px;
 }
 
+.auth-pages .auth-right .auth-button-hollow {
+  background: white;
+  color: #212121;
+  border-radius: 5px;
+  border: 1px solid #212121;
+  padding: 12px 50px;
+}
+
+.auth-pages .auth-right .auth-button-hollow:hover {
+  background: #212121;
+  color: #e9e9e9;
+}
+

@@ -30,11 +30,24 @@
             &:hover{
                 background:lighten($text-color, 20%);
             }
-        }
+        }  
     }
 
     .auth-right{
         border-left:1px solid $separator-color;
         padding-left:100px;
+
+        .auth-button-hollow{
+            background:white;
+            color:$text-color;
+            border-radius:5px;
+            border:1px solid $text-color;
+            padding:12px 50px;
+
+            &:hover{
+                background:$text-color;
+                color:$white;
+            }
+        }
     }
 }
