@@ -1,6 +1,7 @@
 (function () {
     var client = algoliasearch('D1UAWETDYG', '58c046b56e1f77dfa82c4fe2b11f8160');
     var index = client.initIndex('products');
+    var enterPressed = false;
 
     function newHitsSource(index, params) {
         return function doSearch(query, cb) {
@@ -41,5 +42,10 @@
         }
     ]).on('autocomplete:selected', function (event, suggestion, dataset, context) {
         window.location.href = window.location.origin + '/shop/' + suggestion.slug;
+        enterPressed = true;
+    }).on('keyup', function(event){
+        if(event.keyCode === 13 && !enterPressed){
+            console.log('Enter key hit');
+        }
     });
 })();
