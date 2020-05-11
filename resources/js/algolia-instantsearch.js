@@ -18,8 +18,7 @@
                 item(hit) {
                   return `
                     <div>
-                      <p>Name: ${instantsearch.highlight({ attribute: 'name', highlightedTagName: 'mark', hit })}</p>
-                      <p>Name: ${instantsearch.snippet({ attribute: 'name', highlightedTagName: 'mark', hit })}</p>
+                      <p>${instantsearch.highlight({ attribute: 'name', highlightedTagName: 'mark', hit })}</p>
                     </div>
                   `;
                 }
