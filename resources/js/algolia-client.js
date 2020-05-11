@@ -45,7 +45,7 @@
         enterPressed = true;
     }).on('keyup', function(event){
         if(event.keyCode === 13 && !enterPressed){
-            console.log('Enter key hit');
+            window.location.href = window.location.origin + '/search-algolia';
         }
     });
 })();
