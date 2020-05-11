@@ -21,6 +21,7 @@
 
     <div id="search-box"></div>
     <div id ="hits"></div>
+    <div id="pagination"></div>
 </div> 
 @endsection
 

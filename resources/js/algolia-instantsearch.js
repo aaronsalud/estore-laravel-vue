@@ -17,13 +17,16 @@
             templates: {
                 item(hit) {
                   return `
-                    <article>
+                    <div>
                       <p>Name: ${instantsearch.highlight({ attribute: 'name', highlightedTagName: 'mark', hit })}</p>
                       <p>Name: ${instantsearch.snippet({ attribute: 'name', highlightedTagName: 'mark', hit })}</p>
-                    </article>
+                    </div>
                   `;
                 }
               }
+        }),
+        instantsearch.widgets.pagination({
+            container: '#pagination',
         })
     ]);
 
