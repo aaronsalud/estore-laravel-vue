@@ -1,5 +1,6 @@
 {
     "/js/algolia-client.js": "/js/algolia-client.js",
+    "/js/algolia-instantsearch.js": "/js/algolia-instantsearch.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/responsive.css": "/css/responsive.css",
