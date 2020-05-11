@@ -11975,3 +11975,11 @@ h1.checkout-heading {
   margin-bottom: 10px;
 }
 
+.search-results-algolia-container {
+  min-height: 400px;
+  margin: 40px 0;
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  grid-gap: 20px;
+}
+
