@@ -30,13 +30,20 @@
             </form>
         </div>
         <div class="auth-right">
+            <h2>New Customer</h2>
+            <div class="spacer"></div>
             <div>
-                <h2>New Customer</h2>
-                <div class="spacer"></div>
                 <p class="font-weight-bold">Save time now.</p>
                 <p>You don't need an account to checkout</p>
                 <div class="spacer"></div>
                 <a href="{{ route('guestCheckout.index') }}" class="auth-button-hollow">Continue as Guest</a>
+            </div>
+            <div class="spacer"></div>
+            <div>
+                <p class="font-weight-bold">Save time later.</p>
+                <p>Create an account for fast checkout and easy access to orders.</p>
+                <div class="spacer"></div>
+                <a href="{{ route('register') }}" class="auth-button-hollow">Create an Account</a>
             </div>
         </div>
     </div>
