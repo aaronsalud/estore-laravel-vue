@@ -3,7 +3,8 @@
 
     const search = instantsearch({
         indexName: 'products',
-        searchClient
+        searchClient,
+        routing: true
     });
 
     const widgets = {
