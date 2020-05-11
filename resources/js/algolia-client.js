@@ -22,9 +22,13 @@
             displayKey: 'name',
             templates: {
                 suggestion: function (suggestion) {
-                    console.log(suggestion);
-                    // return suggestion._highlightResult.my_attribute.value;
-                    return suggestion.name;
+                    return `
+                        <span>${suggestion._highlightResult.name.value}</span>
+                        <span>${suggestion.price}</span> 
+                    `;
+                },
+                empty: function(result){
+                    return `<span>Sorry, we id not find any results for ${result.query}</span>`
                 }
             }
         }
