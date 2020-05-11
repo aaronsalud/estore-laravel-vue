@@ -146,6 +146,22 @@
   .checkout-section .checkout-table-container {
     margin-left: 10px;
   }
+
+  .auth-pages {
+    margin: 50px auto;
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+    height: auto;
+  }
+
+  .auth-left {
+    padding: 20px !important;
+  }
+
+  .auth-right {
+    border-left: 0 !important;
+    padding: 20px !important;
+  }
 }
 
 /* Small Devices, Tablets */
