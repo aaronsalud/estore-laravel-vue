@@ -21,8 +21,9 @@
                         <label for="remember">Remember Me</label>
                     </div>
                 </div>
+                <div class="spacer"></div>
                 @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
+                <a  href="{{ route('password.request') }}">
                     {{ __('Forgot Your Password?') }}
                 </a>
                 @endif
