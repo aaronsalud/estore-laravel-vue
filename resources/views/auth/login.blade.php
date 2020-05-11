@@ -23,14 +23,21 @@
                 </div>
                 <div class="spacer"></div>
                 @if (Route::has('password.request'))
-                <a  href="{{ route('password.request') }}">
+                <a href="{{ route('password.request') }}">
                     {{ __('Forgot Your Password?') }}
                 </a>
                 @endif
             </form>
         </div>
         <div class="auth-right">
-
+            <div>
+                <h2>New Customer</h2>
+                <div class="spacer"></div>
+                <p class="font-weight-bold">Save time now.</p>
+                <p>You don't need an account to checkout</p>
+                <div class="spacer"></div>
+                <a href="{{ route('guestCheckout.index') }}" class="auth-button-hollow">Continue as Guest</a>
+            </div>
         </div>
     </div>
 </div>

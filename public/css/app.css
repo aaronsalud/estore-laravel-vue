@@ -11999,7 +11999,7 @@ h1.checkout-heading {
   margin: 100px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 100px;
 }
 
 .auth-pages input {
@@ -12030,5 +12030,10 @@ h1.checkout-heading {
 
 .auth-pages .login-actions .auth-button:hover {
   background: #545454;
+}
+
+.auth-pages .auth-right {
+  border-left: 1px solid #CDCDCD;
+  padding-left: 100px;
 }
 
