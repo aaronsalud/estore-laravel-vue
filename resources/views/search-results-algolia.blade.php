@@ -16,14 +16,18 @@
 </x-breadcrumbs>
 
 <div class="search-container container my-3">
-
-    <h1>Search Results</h1>
-    <div class="container">
-        <div class="my-3" id="search-box"></div>
-        <div id="stats"></div>
-        <div id="refinement-list"></div>
-        <div id="hits"></div>
-        <div class="my-3" id="pagination"></div>
+    <div class="search-results-algolia-container container">
+        <div>
+            <h2>Search</h2>
+            <div class="my-3" id="search-box"></div>
+            <div id="stats"></div>
+            <h2>Categories</h2>
+            <div id="refinement-list"></div>
+        </div>
+        <div>
+            <div id="hits"></div>
+            <div class="my-3" id="pagination"></div>
+        </div>
     </div>
 </div>
 @endsection
