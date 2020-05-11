@@ -8,11 +8,22 @@
 
     search.addWidgets([
         instantsearch.widgets.searchBox({
-            container: '#searchbox',
+            container: '#search-box',
+            placeholder: 'Search for Products'
         }),
 
         instantsearch.widgets.hits({
             container: '#hits',
+            templates: {
+                item(hit) {
+                  return `
+                    <article>
+                      <p>Name: ${instantsearch.highlight({ attribute: 'name', highlightedTagName: 'mark', hit })}</p>
+                      <p>Name: ${instantsearch.snippet({ attribute: 'name', highlightedTagName: 'mark', hit })}</p>
+                    </article>
+                  `;
+                }
+              }
         })
     ]);
 
