@@ -22,18 +22,11 @@
             <li class="{{ setActiveItem(request()->category, $category['slug']) }}"><a href="{{ route('shop.index', ['category' => $category['slug']]) }}">{{$category['name']}}</a></li>
             @endforeach
         </ul>
-
-        <!-- <h3>By Price</h3>
-            <ul>
-                <li><a href="#">$0 - $700</a></li>
-                <li><a href="#">$700 - $2500</a></li>
-                <li><a href="#">$2500+</a></li>
-            </ul> -->
     </div> <!-- end sidebar -->
     <div>
         <div class="products-header">
             <h1 class="stylish-heading">{{$categoryName}}</h1>
-            <div>
+            <div class="price-sort-options">
                 <span class="font-weight-bold">Price:</span>
                 <a href="{{ route('shop.index', ['category' => request()->category, 'sort' => 'low_high']) }}">Low to High</a> |
                 <a href="{{ route('shop.index', ['category' => request()->category, 'sort' => 'high_low']) }}">High to Low</a>

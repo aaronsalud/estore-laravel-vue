@@ -87,7 +87,7 @@
         .products-header {
             padding: 18px 5%;
             .stylish-heading {
-                font-size: 18px !important;
+                font-size: 18px;
             }
         }
         .sidebar {
@@ -164,7 +164,16 @@
 
 /* Extra Small Devices, Phones */
 
-@media only screen and (max-width: 480px) {}
+@media only screen and (max-width: 480px) {
+    .products-header {
+        .stylish-heading {
+            font-size: 15px !important;
+        }
+        .price-sort-options {
+            font-size: 13px;
+        }
+    }
+}
 
 
 /* Custom, iPhone Retina */

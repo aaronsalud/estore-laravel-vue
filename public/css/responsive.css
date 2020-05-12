@@ -112,7 +112,7 @@
   }
 
   .products-section .products-header .stylish-heading {
-    font-size: 18px !important;
+    font-size: 18px;
   }
 
   .products-section .sidebar {
@@ -198,6 +198,16 @@
 /* Small Devices, Tablets */
 
 /* Extra Small Devices, Phones */
+
+@media only screen and (max-width: 480px) {
+  .products-header .stylish-heading {
+    font-size: 15px !important;
+  }
+
+  .products-header .price-sort-options {
+    font-size: 13px;
+  }
+}
 
 /* Custom, iPhone Retina */
 
