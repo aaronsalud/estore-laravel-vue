@@ -42,7 +42,7 @@
 
                     </div>
                     <div>
-                        <select class="quantity" data-id="{{$item->rowId}}">
+                        <select class="quantity" data-id="{{$item->rowId}}" data-productQuantity="{{$item->model->quantity}}">
                             @for($i=1; $i <=5; ++$i)
                             <option {{ $item->qty == $i ? 'selected' : ''}}>{{$i}}</option>
                             @endfor
@@ -133,8 +133,10 @@
         Array.from(className).forEach((element) => {
             element.addEventListener('change', () => {
                 const id = element.getAttribute('data-id');
+                const productQuantityRemaining = element.getAttribute('data-productQuantity');
                 axios.put(`/cart/${id}`, {
-                        quantity: element.value
+                        quantity: element.value,
+                        productQuantity: productQuantityRemaining
                     })
                     .then((res) => {
                         window.location.href = "{{ route('cart.index')}}";
