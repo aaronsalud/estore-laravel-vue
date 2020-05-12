@@ -83,7 +83,7 @@ class CheckoutController extends Controller
     private function getPriceCalculations(){
         $tax = config('cart.tax') / 100;
         $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subtotal() - $discount);
+        $newSubtotal = (Cart::subtotal() - $discount) > 0 ? (Cart::subtotal() - $discount) : 0;
         $newTax = $newSubtotal * $tax;
         $newTotal = $newSubtotal * (1 + $tax);
 
