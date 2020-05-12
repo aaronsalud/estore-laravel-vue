@@ -108,6 +108,11 @@ class CartController extends Controller
             return response()->json(['success' => false], 400);
         }
 
+        if($request->quantity > $request->productQuantity){
+            session()->flash('error_message', 'We currently do not have enough items in stock.');
+            return response()->json(['success' => false], 400);
+        }
+
         Cart::instance('default')->update($id, $request->quantity);
         session()->flash('success_message', 'Cart item quantity updated successfully');
         return response()->json(['success' => true]);
