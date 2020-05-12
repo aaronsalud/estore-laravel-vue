@@ -11266,23 +11266,27 @@ form button[type=submit] {
   font-size: 16px;
 }
 
-.pagination {
+nav {
+  text-align: center;
+}
+
+nav .pagination {
   display: inline-block;
   padding-left: 0;
   margin: 25px 0 0;
   border-radius: 4px;
 }
 
-.pagination > li {
+nav .pagination > li {
   display: inline;
 }
 
-.pagination > .active > a,
-.pagination > .active > span,
-.pagination > .active > a:hover,
-.pagination > .active > span:hover,
-.pagination > .active > a:focus,
-.pagination > .active > span:focus {
+nav .pagination > .active > a,
+nav .pagination > .active > span,
+nav .pagination > .active > a:hover,
+nav .pagination > .active > span:hover,
+nav .pagination > .active > a:focus,
+nav .pagination > .active > span:focus {
   background-color: #f4f4f4 !important;
   border-color: #DDDDDD !important;
   color: inherit;
@@ -11290,15 +11294,15 @@ form button[type=submit] {
   z-index: 2;
 }
 
-.pagination > li:first-child > a,
-.pagination > li:first-child > span {
+nav .pagination > li:first-child > a,
+nav .pagination > li:first-child > span {
   margin-left: 0;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 
-.pagination > li > a,
-.pagination > li > span {
+nav .pagination > li > a,
+nav .pagination > li > span {
   background-color: #FFFFFF !important;
   border: 1px solid #DDDDDD !important;
   color: inherit !important;
@@ -11309,10 +11313,10 @@ form button[type=submit] {
   text-decoration: none;
 }
 
-.pagination > li > a:focus,
-.pagination > li > a:hover,
-.pagination > li > span:focus,
-.pagination > li > span:hover {
+nav .pagination > li > a:focus,
+nav .pagination > li > a:hover,
+nav .pagination > li > span:focus,
+nav .pagination > li > span:hover {
   z-index: 2;
   color: #23527c !important;
   background-color: #eee !important;
