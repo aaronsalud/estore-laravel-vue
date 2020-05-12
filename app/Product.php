@@ -30,7 +30,7 @@ class Product extends Model
         ],
     ];
 
-     /**
+    /**
      * Get the indexable data array for the model.
      *
      * @return array
@@ -82,5 +82,18 @@ class Product extends Model
     public function scopeMightLike($query)
     {
         return $query->inRandomOrder()->take(4);
+    }
+
+    public function getStockLevel()
+    {
+        if ($this->quantity > setting('site.stock_threshold')) {
+            $stockLevel =  '<div class="badge badge-success">In Stock</div>';
+        } else if ($this->quantity < setting('site.stock_threshold') && $this->quantity > 0) {
+            $stockLevel =  '<div class="badge badge-warning">Low Stock</div>';
+        } else {
+            $stockLevel = '<div class="badge badge-danger">Out of Stock</div>';
+        }
+
+        return $stockLevel;
     }
 }
