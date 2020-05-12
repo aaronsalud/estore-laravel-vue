@@ -12008,29 +12008,34 @@ h1.checkout-heading {
   padding: 16px 10px;
   border-radius: 5px;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 30px;
+  outline: none !important;
 }
 
 .auth-pages input[type=checkbox] {
   width: auto;
 }
 
-.auth-pages .login-actions {
+.auth-pages .auth-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.auth-pages .login-actions .auth-button {
+.auth-pages .auth-actions .auth-button {
   background: #212121;
   color: #e9e9e9;
   border-radius: 5px;
   padding: 12px 50px;
 }
 
-.auth-pages .login-actions .auth-button:hover {
+.auth-pages .auth-actions .auth-button:hover {
   background: #545454;
+}
+
+.auth-pages .auth-actions .already-have-container {
+  text-align: right;
 }
 
 .auth-pages .auth-right {

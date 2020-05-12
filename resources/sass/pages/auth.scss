@@ -10,14 +10,15 @@
         padding:16px 10px;
         border-radius:5px;
         width:100%;
-        font-size:14px;
+        font-size:16px;
         margin-bottom:30px;
+        outline:none !important;
     }
     input[type="checkbox"]{
         width:auto;
     }
 
-    .login-actions{
+    .auth-actions{
         display:flex;
         align-items: center;
         justify-content: space-between;
@@ -32,6 +33,10 @@
                 background:lighten($text-color, 20%);
             }
         }  
+
+        .already-have-container {
+            text-align: right;
+        }
     }
 
     .auth-right{
