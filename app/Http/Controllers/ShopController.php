@@ -54,10 +54,12 @@ class ShopController extends Controller
         if($product->quantity > setting('site.stock_threshold')){
             $stockLevel =  'In Stock';
         }
-        else{
+        else if($product->quantity < setting('site.stock_threshold') && $product->quantity > 0){
             $stockLevel =  'Low Stock';
+        }else {
+            $stockLevel = 'Out of Stock';
         }
-        
+
         return view('product', ['product' => $product, 'productsMightLike' => $productsMightLike, 'stockLevel' => $stockLevel]);
     }
 
