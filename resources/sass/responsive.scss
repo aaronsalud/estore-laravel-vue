@@ -84,6 +84,12 @@
     }
     .products-section {
         grid-template-columns: 1fr;
+        .products-header {
+            padding: 18px 5%;
+            .stylish-heading {
+                font-size: 18px !important;
+            }
+        }
         .sidebar {
             text-align: center;
         }

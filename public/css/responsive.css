@@ -107,6 +107,14 @@
     grid-template-columns: 1fr;
   }
 
+  .products-section .products-header {
+    padding: 18px 5%;
+  }
+
+  .products-section .products-header .stylish-heading {
+    font-size: 18px !important;
+  }
+
   .products-section .sidebar {
     text-align: center;
   }
