@@ -11319,11 +11319,15 @@ form button[type=submit] {
   border-color: #ddd !important;
 }
 
-.search-form {
+.searchbars-container {
+  display: flex;
+}
+
+.searchbars-container .search-form {
   position: relative;
 }
 
-.search-icon {
+.searchbars-container .search-icon {
   color: gray;
   position: absolute;
   top: 12px;
@@ -11331,7 +11335,7 @@ form button[type=submit] {
   z-index: 2;
 }
 
-.search-box {
+.searchbars-container .search-box {
   padding: 10px 12px 10px 34px;
   width: 250px;
   max-width: 100%;

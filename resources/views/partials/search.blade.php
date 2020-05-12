@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="searchbars-container">
     <div class="mx-1">
         <form action="{{ route('search') }}" method="GET" class="search-form">
             <i class="fa fa-search search-icon"></i>
