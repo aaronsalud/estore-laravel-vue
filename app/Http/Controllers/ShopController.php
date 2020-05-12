@@ -51,16 +51,7 @@ class ShopController extends Controller
     {
         $productsMightLike = Product::where('slug', '!=', $product->slug)->mightLike()->get();
 
-        if($product->quantity > setting('site.stock_threshold')){
-            $stockLevel =  'In Stock';
-        }
-        else if($product->quantity < setting('site.stock_threshold') && $product->quantity > 0){
-            $stockLevel =  'Low Stock';
-        }else {
-            $stockLevel = 'Out of Stock';
-        }
-
-        return view('product', ['product' => $product, 'productsMightLike' => $productsMightLike, 'stockLevel' => $stockLevel]);
+        return view('product', ['product' => $product, 'productsMightLike' => $productsMightLike]);
     }
 
     public function search(Request $request){
