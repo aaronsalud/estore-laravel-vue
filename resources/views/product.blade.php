@@ -18,7 +18,7 @@
 </x-breadcrumbs>
 
 <div class="product-section container">
-    <div>
+    <div class="product-image-gallery">
         <div class="product-section-image">
             <img src="{{$product->getImagePath()}}" alt="product" id="currentImage" class="active">
         </div>

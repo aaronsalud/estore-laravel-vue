@@ -127,6 +127,11 @@
     grid-template-columns: 1fr;
   }
 
+  .product-section .product-image-gallery,
+  .product-section .product-section-information {
+    padding: 20px 40px;
+  }
+
   .might-like-section .might-like-grid {
     grid-template-columns: 1fr;
   }
