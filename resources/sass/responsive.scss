@@ -109,9 +109,13 @@
     }
     .cart-section {
         grid-template-columns: 1fr;
+        padding: 0 40px;
         .cart-buttons {
             flex-direction: column;
             text-align: center;
+            a {
+                margin-bottom: 10px;
+            }
         }
         .cart-table-row {
             .cart-table-row-left {

@@ -138,11 +138,16 @@
 
   .cart-section {
     grid-template-columns: 1fr;
+    padding: 0 40px;
   }
 
   .cart-section .cart-buttons {
     flex-direction: column;
     text-align: center;
+  }
+
+  .cart-section .cart-buttons a {
+    margin-bottom: 10px;
   }
 
   .cart-section .cart-table-row .cart-table-row-left {
