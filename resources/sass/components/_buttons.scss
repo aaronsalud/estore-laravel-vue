@@ -11,6 +11,7 @@
 .button-white {
     border: 1px solid $white;
     color: $white !important;
+    padding: 12px 40px;
     border-radius: 5px;
     &:hover {
         color: $text-color !important;
