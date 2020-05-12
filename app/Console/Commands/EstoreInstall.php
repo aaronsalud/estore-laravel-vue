@@ -39,9 +39,9 @@ class EstoreInstall extends Command
      */
     public function handle()
     {
-        if($this->option('force')){
+        if ($this->option('force')) {
             $this->proceed();
-        }else if ($this->confirm('This will reset ALL your current data. Are you sure you want to proceed?')) {
+        } else if ($this->confirm('This will reset ALL your current data. Are you sure you want to proceed?')) {
             $this->proceed();
         }
     }
@@ -61,6 +61,18 @@ class EstoreInstall extends Command
         $this->call('migrate:fresh', [
             '--seed' => true,
         ]);
+
+        try {
+            $this->call('scout:flush', [
+                'model' => 'App\\Product',
+            ]);
+
+            $this->call('scout:import', [
+                'model' => 'App\\Product',
+            ]);
+        } catch (\Exception $e) {
+            $this->error('Algolia credentials incorrect. Check your .env file. Make sure ALGOLIA_APP_ID and ALGOLIA_SECRET are correct.');
+        }
 
         DB::unprepared(file_get_contents(base_path('database/exports/voyager-export.sql')));
 
