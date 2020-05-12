@@ -11,18 +11,36 @@
 @media only screen and (max-width: 992px) {
   header.with-background .top-nav,
   header .top-nav {
-    flex-direction: column;
+    display: block !important;
   }
 
   header.with-background .top-nav .logo,
   header .top-nav .logo {
     margin: auto;
+    text-align: center;
   }
 
   header.with-background .top-nav ul,
   header .top-nav ul {
-    margin: 20px auto 0;
-    width: 80%;
+    display: block !important;
+    text-align: center;
+    width: 100%;
+    padding: 0 !important;
+  }
+
+  header.with-background .top-nav li,
+  header .top-nav li {
+    margin: 0 !important;
+  }
+
+  header.with-background .top-nav .top-nav-left,
+  header .top-nav .top-nav-left {
+    display: block !important;
+  }
+
+  header.with-background .top-nav .top-nav-right,
+  header .top-nav .top-nav-right {
+    display: block !important;
   }
 
   header.with-background .hero,
