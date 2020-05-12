@@ -1,17 +1,17 @@
 .button {
     border: 1px solid $text-color;
     padding: 12px 40px;
-
+    border-radius: 5px;
     &:hover {
-        color: $white;
-        background: $text-color;
+        color: $white !important;
+        background: $text-color !important;
     }
 }
 
 .button-white {
     border: 1px solid $white;
     color: $white !important;
-
+    border-radius: 5px;
     &:hover {
         color: $text-color !important;
         background: $white;
@@ -22,14 +22,13 @@
     background: $primary;
     color: white !important;
     padding: 12px 40px;
-
+    border-radius: 5px;
     &:hover {
         background: darken($primary, 7%);
     }
-
     &:disabled {
-        background:lighten($primary, 10%);
-        cursor:not-allowed;
+        background: lighten($primary, 10%);
+        cursor: not-allowed;
     }
 }
 
