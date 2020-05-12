@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Coupon;
+use App\Jobs\UpdateDiscount;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -24,10 +25,7 @@ class CouponsController extends Controller
             return back();
         }
 
-        session()->put('coupon', [
-            'name' => $coupon->code,
-            'discount' => $coupon->discount(Cart::subtotal())
-        ]);
+        dispatch_now(new UpdateDiscount($coupon));
 
         Alert::toast('Discount coupon has been applied!','success');
 
