@@ -631,7 +631,9 @@ VALUES
 	(7,'admin.description','Admin Description','Welcome to Voyager. The Missing Admin for Laravel','','text',2,'Admin'),
 	(8,'admin.loader','Admin Loader','','','image',3,'Admin'),
 	(9,'admin.icon_image','Admin Icon Image','','','image',4,'Admin'),
-	(10,'admin.google_analytics_client_id','Google Analytics Client ID (used for admin dashboard)','','','text',1,'Admin');
+	(10,'admin.google_analytics_client_id','Google Analytics Client ID (used for admin dashboard)','','','text',1,'Admin'),
+	(11, 'site.stock_threshold', 'Stock Threshold', '5', NULL, 'text', 6, 'Site');
+
 
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
