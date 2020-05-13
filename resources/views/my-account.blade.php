@@ -27,8 +27,9 @@
         </div>
         <div class="edit-form">
             <form action="#" method="POST">
-                <input id="name" type="text" value="" placeholder="Name" required>
-                <input id="email" type="email" value="" placeholder="Email" required>
+                <input id="name" type="text" value="{{ old('name', $user->name) }}" placeholder="Name" required>
+                <input id="email" type="email" value="{{ old('email', $user->email) }}" placeholder="Email" required>
+                <div class="font-weight-bold mb-3">*Leave password fields blank to keep the current password</div>
                 <input id="password" type="password" value="" placeholder="Password" required>
                 <input id="password-confirm" type="password" value="" placeholder="Confirm Password" required>
                 <div>
