@@ -87,7 +87,7 @@
                     <div class="blog-post">
                         <a href="{{$blogPost['link']}}" target="_blank"><img src="{{$blogPost['_embedded']['wp:featuredmedia'][0]['source_url']}}" alt="Blog Image"></a>
                         <a href="{{$blogPost['link']}}" target="_blank"><h2 class="blog-title">{{$blogPost['title']['rendered']}}</h2></a>
-                        <div class="blog-description">{!!$blogPost['content']['rendered']!!}</div>
+                        <div class="blog-description">{!! Str::limit($blogPost['content']['rendered'], 300)!!}</div>
                     </div>
                     @endforeach
                 </div>
