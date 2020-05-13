@@ -60,4 +60,5 @@ Route::middleware('auth')->group(function(){
     Route::get('/my-account', 'ProfileController@edit')->name('profile.edit');
     Route::put('/my-account', 'ProfileController@update')->name('profile.update');
     Route::get('/my-orders', 'OrdersController@index')->name('orders.index');
+    Route::get('/my-orders/{order}', 'OrdersController@show')->name('orders.show');
 });
