@@ -22,15 +22,28 @@
         </ul>
     </div> <!-- end sidebar -->
     <div>
+        @if(count($errors) > 0)
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{!! $error !!}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="header">
             <h1 class="stylish-heading">My Account</h1>
         </div>
+
         <div class="edit-form">
             <form action="{{route('profile.update')}}" method="POST">
                 @csrf
                 @method('put')
                 <input id="name" name="name" type="text" value="{{ old('name', $user->name) }}" placeholder="Name" required>
-                <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" placeholder="Email" required>
+                <div>
+                    <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" placeholder="Email" required>
+                </div>
+
                 <div class="font-weight-bold mb-3">*Leave password fields blank to keep the current password</div>
                 <input id="password" name="password" type="password" value="" placeholder="Password">
                 <input id="password-confirm" name="password-confirm" type="password" value="" placeholder="Confirm Password">
