@@ -1,9 +1,15 @@
 <?php
 
+use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 
 function getFormattedPrice($price){
     return '$' . number_format($price / 100, 2); 
+}
+
+function getFormattedDate($date)
+{
+    return Carbon::parse($date)->format('M d, Y');
 }
 
 function setActiveItem($p1, $p2, $styleAtttributes = 'active'){
@@ -25,3 +31,4 @@ function generateImageLink($image, $slug=''){
 function displayErrorToast($message){
     Alert::toast($message,'error');
 }
+
