@@ -12071,8 +12071,8 @@ h1.checkout-heading {
 .my-account-section {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  margin: 50px auto 80px;
-  height: calc(100vh - 433px);
+  margin: 50px auto;
+  min-height: 500px;
 }
 
 .my-account-section .sidebar li.active {
