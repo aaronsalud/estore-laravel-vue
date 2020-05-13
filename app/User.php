@@ -38,6 +38,6 @@ class User extends \TCG\Voyager\Models\User
     ];
 
     public function orders(){
-        $this->hasMany('App\Order');
+        return $this->hasMany('App\Order');
     }
 }
