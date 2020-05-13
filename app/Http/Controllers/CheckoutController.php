@@ -47,6 +47,12 @@ class CheckoutController extends Controller
      */
     public function store(CheckoutRequest $request)
     {
+        // Check race condition when there are less items available to purchase
+        if($this->productsNoLongerAvailable()){
+            Alert::toast('Sorry! one of the items in your cart is no longer available','error');
+            return back();
+        }
+
         $contents = Cart::instance('default')->content()->map(function ($item) {
             return $item->model->slug . ', ' . $item->qty;
         })->values()->toJson();
@@ -139,5 +145,16 @@ class CheckoutController extends Controller
             $product = Product::find($item->model->id);
             $product->update(['quantity' => $product->quantity - $item->qty]);
         }
+    }
+
+    private function productsNoLongerAvailable(){
+        foreach(Cart::instance('default')->content() as $item){
+            $product = Product::find($item->model->id);
+
+            if($product->quantity < $item->qty){
+                return true;
+            }
+        }
+        return false;
     }
 }
