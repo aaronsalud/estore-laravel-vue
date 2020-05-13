@@ -46,7 +46,7 @@
 
                 <div class="font-weight-bold mb-3">*Leave password fields blank to keep the current password</div>
                 <input id="password" name="password" type="password" value="" placeholder="Password">
-                <input id="password-confirm" name="password-confirm" type="password" value="" placeholder="Confirm Password">
+                <input id="password-confirm" name="password_confirmation" type="password" value="" placeholder="Confirm Password">
                 <div>
                     <button class="submit-button" type="submit">Update Profile</button>
                 </div>
