@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -14,8 +15,6 @@ class OrdersController extends Controller
     public function index()
     {
         $orders = auth()->user()->orders()->with('products')->get();
-
-        dump($orders);
         return view('my-orders', ['orders'=> $orders]);
     }
 
@@ -46,9 +45,11 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        $products = $order->products;
+
+        return view('my-order', ['order' => $order,'products' => $products]);
     }
 
     /**
