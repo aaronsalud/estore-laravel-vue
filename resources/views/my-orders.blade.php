@@ -18,7 +18,7 @@
     <div class="sidebar">
         <ul>
             <li><a href="{{ route('profile.edit') }}">My Account</a></li>
-            <li class="active"><a href="#">My Orders</a></li>
+            <li class="active"><a href="">My Orders</a></li>
         </ul>
     </div> <!-- end sidebar -->
     <div>
@@ -45,7 +45,7 @@
                     </div>
                     <div>
                         <div class="order-header-items">
-                        <div><a href="#">Order Details</a></div>   
+                            <div><a href="{{ route('orders.show', $order->id) }}">Order Details</a></div>
                             <div>|</div>
                             <div><a href="#">Invoice</a></div>
                         </div>
