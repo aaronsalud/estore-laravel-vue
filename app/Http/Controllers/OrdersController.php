@@ -13,6 +13,9 @@ class OrdersController extends Controller
      */
     public function index()
     {
+        $orders = auth()->user()->orders;
+
+        dump($orders);
         return view('my-orders');
     }
 
