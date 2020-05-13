@@ -10,6 +10,8 @@ class Product extends Model
 {
     use SearchableTrait, Searchable;
 
+    protected $guarded = [];
+
     /**
      * Searchable rules.
      *
