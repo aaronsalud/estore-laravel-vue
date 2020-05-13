@@ -26,12 +26,14 @@
             <h1 class="stylish-heading">My Account</h1>
         </div>
         <div class="edit-form">
-            <form action="#" method="POST">
-                <input id="name" type="text" value="{{ old('name', $user->name) }}" placeholder="Name" required>
-                <input id="email" type="email" value="{{ old('email', $user->email) }}" placeholder="Email" required>
+            <form action="{{route('profile.update')}}" method="POST">
+                @csrf
+                @method('put')
+                <input id="name" name="name" type="text" value="{{ old('name', $user->name) }}" placeholder="Name" required>
+                <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" placeholder="Email" required>
                 <div class="font-weight-bold mb-3">*Leave password fields blank to keep the current password</div>
-                <input id="password" type="password" value="" placeholder="Password" required>
-                <input id="password-confirm" type="password" value="" placeholder="Confirm Password" required>
+                <input id="password" name="password" type="password" value="" placeholder="Password">
+                <input id="password-confirm" name="password-confirm" type="password" value="" placeholder="Confirm Password">
                 <div>
                     <button class="submit-button" type="submit">Update Profile</button>
                 </div>
