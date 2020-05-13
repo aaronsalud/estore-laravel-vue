@@ -17,8 +17,8 @@
 <div class="my-account-section container">
     <div class="sidebar">
         <ul>
-            <li class="active"><a href="#">My Account</a></li>
-            <li><a href="#">My Orders</a></li>
+            <li class="active"><a href="">My Account</a></li>
+            <li><a href="{{route('orders.index')}}">My Orders</a></li>
         </ul>
     </div> <!-- end sidebar -->
     <div>
