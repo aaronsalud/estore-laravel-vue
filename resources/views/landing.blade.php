@@ -83,21 +83,13 @@
                 <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic.</p>
 
                 <div class="blog-posts">
-                    <div class="blog-post" id="blog1">
-                        <a href="#"><img src="/img/blog1.png" alt="Blog Image"></a>
-                        <a href="#"><h2 class="blog-title">Blog Post Title 1</h2></a>
-                        <div class="blog-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, tenetur numquam ipsam reiciendis.</div>
+                    @foreach($blogPosts as $blogPost)
+                    <div class="blog-post">
+                        <a href="{{$blogPost['link']}}" target="_blank"><img src="{{$blogPost['_embedded']['wp:featuredmedia'][0]['source_url']}}" alt="Blog Image"></a>
+                        <a href="{{$blogPost['link']}}" target="_blank"><h2 class="blog-title">{{$blogPost['title']['rendered']}}</h2></a>
+                        <div class="blog-description">{!!$blogPost['content']['rendered']!!}</div>
                     </div>
-                    <div class="blog-post" id="blog2">
-                        <a href="#"><img src="/img/blog2.png" alt="Blog Image"></a>
-                        <a href="#"><h2 class="blog-title">Blog Post Title 2</h2></a>
-                        <div class="blog-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, tenetur numquam ipsam reiciendis.</div>
-                    </div>
-                    <div class="blog-post" id="blog3">
-                        <a href="#"><img src="/img/blog3.png" alt="Blog Image"></a>
-                        <a href="#"><h2 class="blog-title">Blog Post Title 3</h2></a>
-                        <div class="blog-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, tenetur numquam ipsam reiciendis.</div>
-                    </div>
+                    @endforeach
                 </div>
             </div> <!-- end container -->
         </div> <!-- end blog-section -->
