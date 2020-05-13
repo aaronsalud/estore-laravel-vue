@@ -47,8 +47,11 @@ class OrdersController extends Controller
      */
     public function show(Order $order)
     {
+        if(auth()->id() !== $order->user_id){
+            return back();
+        }
+        
         $products = $order->products;
-
         return view('my-order', ['order' => $order,'products' => $products]);
     }
 
