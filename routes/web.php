@@ -55,3 +55,5 @@ Route::get('/email-test/{orderId}', function($orderId){
 
 Route::get('/search', 'ShopController@search')->name('search');
 Route::get('/search-algolia', 'ShopController@searchAlgolia')->name('search-algolia');
+
+Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
