@@ -16,7 +16,7 @@ class OrdersController extends Controller
         $orders = auth()->user()->orders;
 
         dump($orders);
-        return view('my-orders');
+        return view('my-orders', ['orders'=> $orders]);
     }
 
     /**
