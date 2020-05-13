@@ -57,5 +57,5 @@ Route::get('/search', 'ShopController@search')->name('search');
 Route::get('/search-algolia', 'ShopController@searchAlgolia')->name('search-algolia');
 
 Route::middleware('auth')->group(function(){
-    Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
+    Route::get('/my-account', 'ProfileController@edit')->name('profile.edit');
 });
