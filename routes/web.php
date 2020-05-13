@@ -59,4 +59,5 @@ Route::get('/search-algolia', 'ShopController@searchAlgolia')->name('search-algo
 Route::middleware('auth')->group(function(){
     Route::get('/my-account', 'ProfileController@edit')->name('profile.edit');
     Route::put('/my-account', 'ProfileController@update')->name('profile.update');
+    Route::get('/my-orders', 'OrdersController@edit')->name('orders.index');
 });
