@@ -14,7 +14,7 @@
     <span>My Account</span>
 </x-breadcrumbs>
 
-<div class="products-section container">
+<div class="my-account-section container">
     <div class="sidebar">
         <ul>
             <li class="active"><a href="#">My Account</a></li>
@@ -22,13 +22,20 @@
         </ul>
     </div> <!-- end sidebar -->
     <div>
-        <div class="products-header">
+        <div class="header">
             <h1 class="stylish-heading">My Account</h1>
         </div>
-
-        <div class="products">
-            Profile here
-        </div> 
+        <div class="edit-form">
+            <form action="#" method="POST">
+                <input id="name" type="text" value="" placeholder="Name" required>
+                <input id="email" type="email" value="" placeholder="Email" required>
+                <input id="password" type="password" value="" placeholder="Password" required>
+                <input id="password-confirm" type="password" value="" placeholder="Confirm Password" required>
+                <div>
+                    <button class="submit-button" type="submit">Update Profile</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -55,7 +55,7 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        return view('profile', ['user' => auth()->user()]);
+        return view('my-account', ['user' => auth()->user()]);
     }
 
     /**
