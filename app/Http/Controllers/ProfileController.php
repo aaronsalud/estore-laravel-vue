@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
 {
@@ -73,7 +74,21 @@ class ProfileController extends Controller
             'password' => ['sometimes','nullable' ,'string', 'min:8', 'confirmed'],
         ]);
 
-        dd($request->all());
+        $user = auth()->user();
+        $input = $request->except('password', 'password_confirmation');
+
+        // If password field is not filled in save the user info
+        if(!$request->filled('password')){
+            $user->fill($input)->save();
+            Alert::toast('User Information has been updated!','success');
+            return back();
+        }
+
+        // Generate password encryption and save user info
+        $user->password = bcrypt($request->password);
+        $user->fill($input)->save();
+        Alert::toast('User Information (with password) has been updated!','success');
+        return back();
     }
 
     /**
