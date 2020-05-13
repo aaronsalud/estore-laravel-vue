@@ -6,6 +6,7 @@ use App\Http\Requests\CheckoutRequest;
 use App\Mail\OrderPlaced;
 use App\Order;
 use App\OrderProduct;
+use App\Product;
 use Cartalyst\Stripe\Exception\CardErrorException;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -22,11 +23,11 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        if(Cart::instance('default')->count() === 0){
+        if (Cart::instance('default')->count() === 0) {
             return redirect()->route('shop.index');
         }
 
-        if(auth()->user() && request()->is('guest-checkout')){
+        if (auth()->user() && request()->is('guest-checkout')) {
             return redirect()->route('checkout');
         }
 
@@ -46,11 +47,11 @@ class CheckoutController extends Controller
      */
     public function store(CheckoutRequest $request)
     {
-        $contents = Cart::content()->map(function($item){
-            return $item->model->slug . ', ' .$item->qty;
+        $contents = Cart::instance('default')->content()->map(function ($item) {
+            return $item->model->slug . ', ' . $item->qty;
         })->values()->toJson();
 
-        try{
+        try {
             $charge = Stripe::charges()->create([
                 'amount' => $this->getPriceCalculations()->get('newTotal') / 100,
                 'currency' => 'CAD',
@@ -68,19 +69,22 @@ class CheckoutController extends Controller
 
             Mail::send(new OrderPlaced($order));
 
+            // Update product quantity remaining of all products in the cart
+            $this->updateProductQuantityRemaining();
+            
             //Successful
             Cart::instance('default')->destroy();
             session()->forget('coupon');
             return redirect()->route('confirmation.index')->with('success', true);
-        }
-        catch(CardErrorException $e){
-            Alert::toast($e->getMessage(),'error');
+        } catch (CardErrorException $e) {
+            Alert::toast($e->getMessage(), 'error');
             $this->addToOrdersTables($request, $e->getMessage());
             return back();
         }
     }
 
-    private function getPriceCalculations(){
+    private function getPriceCalculations()
+    {
         $tax = config('cart.tax') / 100;
         $discount = session()->get('coupon')['discount'] ?? 0;
         $newSubtotal = (Cart::subtotal() - $discount) > 0 ? (Cart::subtotal() - $discount) : 0;
@@ -127,5 +131,13 @@ class CheckoutController extends Controller
         }
 
         return $order;
+    }
+
+    private function updateProductQuantityRemaining()
+    {
+        foreach (Cart::instance('default')->content() as $item) {
+            $product = Product::find($item->model->id);
+            $product->update(['quantity' => $product->quantity - $item->qty]);
+        }
     }
 }
