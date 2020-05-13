@@ -181,7 +181,9 @@ VALUES
 	(99, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 20),
 	(101, 10, 'user_id', 'text', 'User Id', 0, 0, 0, 0, 0, 0, '{}', 1),
 	(102, 10, 'user', 'text', 'User', 1, 1, 1, 0, 0, 0, '{}', 2),
-	(103, 10, 'products', 'text', 'Products', 1, 1, 1, 0, 0, 0, '{}', 2);
+	(103, 10, 'products', 'text', 'Products', 1, 1, 1, 0, 0, 0, '{}', 2),
+	(104, 7, 'quantity', 'number', 'Quantity', 1, 1, 1, 1, 1, 1, '{}', 5);
+
 
 
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
