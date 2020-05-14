@@ -12072,7 +12072,7 @@ h1.checkout-heading {
   display: grid;
   grid-template-columns: 1fr 3fr;
   margin: 50px auto;
-  min-height: 500px;
+  min-height: 575px;
 }
 
 .my-account-section .sidebar li.active {
